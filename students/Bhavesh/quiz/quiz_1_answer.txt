@@ -1,4 +1,10 @@
 1) Link question?
 answer : Output will be 4 becaouse of prevent default.
 
+2) Link question?
+answer : Output will be 4 becaouse of prevent default.
+
+3) Link question?
+answer : Output will be 4 becaouse of prevent default
+
 
