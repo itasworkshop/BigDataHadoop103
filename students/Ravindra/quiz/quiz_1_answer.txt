@@ -1,0 +1,4 @@
+1) Link question?
+answer : Output will be 4 becaouse of prevent default.
+
+
