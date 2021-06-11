@@ -1,0 +1,37 @@
+1. What is Default replication factor and how will you change it at file level?
+Ans: 3
+2. Why do we need replication factor > 1 in production Hadoop cluster?
+ Ans: 
+3. How will you combine the 4 part-r files of a mapreduce job?
+ Ans: First create a folder in hdfs which has the file to combine using –mkdir command. Then write the command:  -cat and -put
+4. What are the Compression techniques in HDFS and which is the best one and why?
+ Ans: 	DEFLATE
+Gzip(GNU Zip)
+BZIP2
+LZO( Lempel-Ziv-Oberhumer)
+LZ4
+Snappy
+
+LZ4 is the best technique because here there is no need of any external indexing and it can be used at any level of speed or compression
+
+5. How will you view the compressed files via HDFS command?
+Ans:  Hdfs –text
+6. What is Secondary Namenode and its Functionalities? why do we need it?
+Ans:  Secondary namenode is a helper node. Secondary namenode keeps the checkpoint on the namenode, It reads the edit logs from the namenode continuously after a specific interval and applies it to the fsimage copy of secondary namenode. It can’t replace the namenode. Its needed because we use it as a backup of namenode.
+7. What is Backup node and how is it different from Secondary namenode?
+Ans: Backup node as the name states its main role is to act as the dynamic Backup for the Filesystem Namespace(Metadata) in the Primary Namenode of the Hadoop Ecosystem. The Backup node implements the Checkpointingfunctionality along with the online streaming of the File system edits transaction in the Primary Namenode.
+
+
+8. What is FSimage and editlogs and how they are related?
+ Ans: These are central data structures of hdfs.  FsImage is a file stored on the OS filesystem that contains the complete directory structure (namespace) of the HDFS with details about the location of the data on the Data Blocks and which blocks are stored on which node.
+EditLogs is a transaction log that recorde the changes in the HDFS file system or any action performed on the HDFS cluster such as addtion of a new block, replication, deletion etc., It records the changes since the last FsImage was created, it then merges the changes into the FsImage file to create a new FsImage file.
+9. what is default block size in HDFS? and why is it so large?
+ Ans: 128 MB. This size is so large because we need to reduce number of blocks and reduce the time.
+10. How will you copy a large file of 50GB into HDFS in parllel
+ Ans:  using distcp command
+11. what is Balancing in HDFS?
+ Ans:  It is a tool for balancing data across storage devices of HDFS cluster
+12. What is expunge in HDFS ?
+Ans:  It is a command to empty the trash in hdfs.
+
+
