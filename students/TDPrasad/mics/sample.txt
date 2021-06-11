@@ -37,3 +37,5 @@ Ams: A uniformly utilising the data nodes in hdfs
 12. What is expunge in HDFS ?
 Ans: Name itself indicates to expel something like trash files in HDFS 
 Hadoop fs -expunge
+
+Thanks.....
