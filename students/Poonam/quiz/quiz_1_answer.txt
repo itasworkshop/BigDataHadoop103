@@ -24,7 +24,7 @@ a. 64 MB & 64 MB
 b. 64 MB & 36 MB
 c. 100 MB
 d. None of the above
-Ans.A
+Ans.C
 
 5. State true or false: MR2 support various MPP modes for data processing?
 a. FALSE
