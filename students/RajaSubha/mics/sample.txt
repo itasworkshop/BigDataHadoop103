@@ -1,1 +1,47 @@
-sample
+
+
+1. What is default replication factor and how will you change at file level?
+
+Answer : Default replication factor is 3.It will be change in the file hdfs-site.xml
+              Each block from the file is copy from the cluster to different nodes.
+
+2.why do we need replication factor >1 in production Hadoop cluster?
+
+Answer :  hdfs stores a copy of block of data of one node of one rack and other copies will send
+                to different node of different racks.Because of fault tolerance the replication factor will be more than 1.
+
+ 3. How will you combine the 4 part-r files of a mapreduce job?
+        Answer   : Hdfs dfs -getmerge <path> 
+
+ 4. What are the Compression techniques in HDFS and which is the best one and why?
+                 Answer :      gzip
+
+5. How will you view the compressed files via HDFS command?
+            Answer :  hdfs dfs -cat <path>  or hdfs dfs -text <path> 
+
+ 6. What is Secondary Namenode and its Functionalities? why do we need it? 
+          Answer:  It merges the files system,editlogs and Fsimage
+                        its supports the primary name node not a replace of name node.It gets the meta data information from the primary node
+
+7. What is Backup node and how is it different from Secondary namenode? 
+           Answer:   backup node is a dynamic backup of name node
+                           Because some fault tolerance occur we need to use this backup node but secondary
+                           name node should supports the primary name node and merges the file processing and namespace image.
+
+8. What is FSimage and editlogs and how they are related? 
+          Answer:   Fsimage and editlog are stores in name node.Its check the all modification and access timing log.
+
+9. what is default block size in HDFS? and why is it so large? 
+            Answer:   In hdfs default block size is 128 Mb. 
+                            Hadoop contains large set of files because to reduce the data information  in blocks
+
+10. How will you copy a large file of 50GB into HDFS in parllel 
+            Answer:  
+
+11. what is Balancing in HDFS? 
+           Answer:    It optimises the data in hdfs.hdfs balancer is used to balances the data present in the hdfs 
+
+12. What is expunge in HDFS ?
+           Answer:   the expunge is used to empty the trash in Hadoop cluster.its like processing of delete.
+
+

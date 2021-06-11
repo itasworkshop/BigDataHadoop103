@@ -118,3 +118,4 @@ b. Only distributed storage
 c. Only processing system 
 d. None of the above 
 Ans : a.
+
