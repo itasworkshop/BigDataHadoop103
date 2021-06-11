@@ -1,4 +1,188 @@
-1) Link question?
-answer : Output will be 4 becaouse of prevent default.
+					Big Data and Hadoop - 01
+
+1.	What is the default replication factor of Hadoop cluster?
+a.	3
+b.	2
+c.	4
+d.	1
+Ans: a
+
+2.	Which component in Hadoop Cluster is responsible for serving read and write requests from the file system's clients?
+a.	Name Node
+b.	Data Node
+c.	Both a & b
+d.	None of the above
+Ans : b
+
+3.	Which component of Hadoop Cluster manages the file system namespace and regulates access to files by clients?
+a.	Name Node
+b.	Data Node
+c.	Both a & b
+d.	None of the above
+Ans : a
+
+4.	If a file size of size 100 MB is stored on HDFS, what would be the split size?
+a.	64 MB & 64 MB
+b.	64 MB & 36 MB
+c.	100 MB
+d.	None of the above
+Ans : b
+
+5.	State true or false: MR2 support various MPP modes for data processing?
+a.	FALSE
+b.	True
+Ans : a
+
+6.	Which comand of HDFS helps copy files from HDFS to Local file system?
+a.	copyFromLocal
+b.	copyToLocal
+c.	put
+d.	mv
+Ans : c
+
+7.	Which Eco system component of Hadoop is good for non sql programmers?
+a.	Hive
+b.	Hbase
+c.	Flume
+d.	Pig
+Ans : b
+
+8.	Block size of a Hadoop cluster is configurable by Administrator?
+a.	TRUE
+b.	FALSE
+Ans : a
 
 
+9.	The functions performed by DataNodes in Hadoop Cluster is/are?
+a.	Data Block Creation
+b.	Data Block Deletion
+c.	Data Block Replication
+d.	All above
+Ans : d
+
+10.	Find error in below command:
+hdfs dfs -put /home/user1/abc.txt
+
+a.	Target name missing
+b.	Source name should include hdfs://
+c.	No error
+Ans : a
+
+11.	Hadoop block size should be multiple of which unit?
+a.	32 MB
+b.	50 MB
+c.	64 MB
+d.	70 MB
+Ans : a
+
+12.	Which component of the hadoop cluster manages data on slave nodes?
+a.	Name node
+b.	Data Node
+c.	Task Tracker
+d.	Job Tracker
+Ans : a
+
+13.	MR1 and MR2 are two modes of processing in Hadoop?
+a.	TRUE
+b.	FALSE
+Ans : b
+
+14.	What is Hadoop?
+a.	Open source software for reliable, scalable, distributed computing.
+b.	A framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models.
+c.	Both a & b
+d.	None of the above
+Ans : c
+
+15.	Hadoop provides
+a.	A reliable distributed storage and processing system
+b.	Only distributed storage
+c.	Only processing system
+d.	None of the above
+Ans : a
+
+
+1.	What is Default replication factor and how will you change it at file level?
+
+Ans: Default replication factor is 3
+     The replication factor is a property that can be set in the HDFS configuration file hdfs-site.xml
+
+2. Why do we need replication factor > 1 in production Hadoop cluster?
+
+Ans:  For better data reliability and fault tolerance
+
+3. How will you combine the 4 part-r files of a mapreduce job?
+
+Ans : By using –getmerge command
+
+4. What are the Compression techniques in HDFS and which is the best one and why?
+
+Ans : GZIP, BZIP2, LZO, SNAPPY
+
+5. How will you view the compressed files via HDFS command?
+
+Ans : 
+
+6. What is Secondary Namenode and its Functionalities? why do we need it?
+
+Ans : It periodically merges the namespace image with the edit log to prevent the edit log from      becoming too large. 
+Requires similar hardware as Namenode machine
+Not used for high-availability
+Not a backup for Namenode
+
+1.	It gets the edit logs from the namenode in regular intervals and applies to fsimage
+2.	Once it has new fsimage, it copies back to namenode
+3.	Namenode will use this fsimage for the next restart,which will reduce the startup time
+
+
+7. What is Backup node and how is it different from Secondary namenode?
+
+Backup node as the name states its main role is to act as the dynamic Backup for the Filesystem Namespace(Metadata) in the Primary Namenode of the Hadoop Ecosystem.
+The Backup node implements the Checkpointing functionality along with the online streaming of the File system edits transaction in the Primary Namenode.
+
+8. What is FSimage and editlogs and how they are related?
+
+Ans : FsImage is a file stored on the OS filesystem that contains the complete directory structure (namespace) of the HDFS with details about the location of the data on the Data Blocks and which blocks are stored on which node. This file is used by the NameNode when it is started.
+
+EditLogs is a transaction log that records the changes in the HDFS file system or any action performed on the HDFS cluster such as addition of a new block, replication, deletion etc. In short, it records the changes since the last FsImage was created.
+
+9. what is default block size in HDFS? and why is it so large?
+
+Ans : The default block size in HDFS is 128MB. 
+
+1.	To minimize the cost of seek: For the large size blocks, time taken to transfer the data from disk can be longer as compared to the time taken to start the block. This results in the transfer of multiple blocks at the disk transfer rate.
+2.	If blocks are small, there will be too many blocks in Hadoop HDFS and thus too much metadata to store. Managing such a huge number of blocks and metadata will create overhead and lead to traffic in a network.
+
+10. How will you copy a large file of 50GB into HDFS in parllel
+
+Ans : By using –cp command
+
+11. what is Balancing in HDFS?
+
+Ans : HDFS provides a balancer utility. This utility analyzes block placement and balances data across the DataNodes. It keeps on moving blocks until the cluster is deemed to be balanced, which means that the utilization of every DataNode is uniform.
+
+12. What is expunge in HDFS ?
+
+Ans : This command is used to empty the trash available in an HDFS system.
+          Syntax: $ hadoop fs –expunge.
+
+
+HDFS Task -1
+
+1.	What is the Namenode’s URI and which file is it configured in? 
+
+      Ans : URI - Uniform Resource Identifier. It consists of Scheme, Authority and Path.
+     format is scheme://authority/path
+
+2.	Where on a local file system will Namenode store its image and which file is it configured in?
+Ans : FsImage
+
+3.	Where on a local file system will Datanode store its blocks and which file is it configured in?
+
+Ans : The DataNode stores HDFS data in files in its local file system. The DataNode has no knowledge about HDFS files. It stores each block of HDFS data in a separate file in its local file system. The DataNode does not create all files in the same directory
+
+4 .What is the block replication and which file is it configured in?
+
+   Ans : HDFS stores each file as a sequence of blocks. The blocks of a file are replicated for fault tolerance. The NameNode makes all decisions regarding replication of blocks. It periodically receives a Blockreport from each of the DataNodes in the cluster.
+
+It is configured in hdfs-site.xml file
