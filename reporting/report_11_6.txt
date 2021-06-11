@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 Deep - 1
 rangappa -1
 Amey - 0 
 anand tiwari - 0
+=======
+>>>>>>> 90b9e1b631e83ed5c1d96f7b353fcda08e66c218
 Anu - 0 absent
 Anurath - -------------
 aparna - 0 
@@ -35,6 +38,7 @@ Soundrya - 0
 Sunil - 0 absent
 TDprasad - 0 
 Umesh - pending
+<<<<<<< HEAD
 Vaishali - 1 
 
 
@@ -45,3 +49,6 @@ Vaishali - 1
 
 
 
+=======
+Vaishali - 1 
+>>>>>>> 90b9e1b631e83ed5c1d96f7b353fcda08e66c218
