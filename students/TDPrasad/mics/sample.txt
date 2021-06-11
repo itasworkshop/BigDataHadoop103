@@ -1,1 +1,184 @@
-sample
+Submitted by T Durga Prasad
+Tasks assignied by Sri Praveen_Sharma
+
+
+1.Q Maximum share traded by any company is.....?
+
+select name, volume, rank from(
+select name, sum(volume) as volume, rank() over (order by sum(volume) desc ) rank from 
+(select c.name, n.volume from comp_data c join nyse n on c.symbol = n.stockticker ) as d group by name) p
+where rank < 2
+order by volume
+;
+
+
+Bank of America Corporation     83575954432     1
+Time taken: 72.49 seconds, Fetched: 1 row(s)
+
+
+2.Q Maximum share traded by any sector wise is.....?
+
+select name, sector, volume,rank from (
+select name, sector, sum(volume) as volume, rank() over (partition by sector order by sum(volume) desc ) rank from 
+(select c.name, c.sector, n.volume from comp_data c join nyse n on c.symbol = n.stockticker ) as d group by sector, name
+) p
+where rank < 2
+order by sector, volume;
+
+company_name               sector 			shares_traded  rank
+
+Freeport-McMoran Copper & Gold, Inc.    Basic Industries        4565887733      1
+Ford Motor Company      Capital Goods   19234835148     1
+Johnson Controls, Inc.  Consumer Durables       1737534987      1
+Altria Group    Consumer Non-Durables   4386395014      1
+Las Vegas Sands Corp.   Consumer Services       9165061827      1
+General Electric Company        Energy  29641780824     1
+Bank of America Corporation     Finance 83575954432     1
+Pfizer, Inc.    Health Care     14067554585     1
+Xerox Corporation       Miscellaneous   2576306387      1
+Sprint Corporation      Public Utilities        12001896865     1
+Oracle Corporation      Technology      8449484059      1
+Delta Air Lines, Inc.   Transportation  3252896434      1
+Apollo Investment Corporation   n/a     673065902       1
+Time taken: 66.986 seconds, Fetched: 13 row(s)
+
+
+3.Q Maximum share traded by any idustry_wise wise is.....?
+
+select name, industry, volume, rank from(
+select name, industry, sum(volume) as volume, rank() over (partition by industry order by sum(volume) desc ) rank from 
+(select c.name, c.industry, n.volume from comp_data c join nyse n on c.symbol = n.stockticker ) as d group by industry, name) p
+where rank < 2
+order by industry, volume
+;
+
+
+
+Aflac Incorporated      Accident &Health Insurance      1806839506      1
+Interpublic Group of Companies, Inc. (The)      Advertising     1777503077      1
+Boeing Company (The)    Aerospace       1730434730      1
+Potash Corporation of Saskatchewan Inc. Agricultural Chemicals  2245550953      1
+Delta Air Lines, Inc.   Air Freight/Delivery Services   3252896434      1
+Aluminum Corporation of China Limited   Aluminum        277414110       1
+Coach, Inc.     Apparel 1488280786      1
+Ford Motor Company      Auto Manufacturing      19234835148     1
+Honeywell International Inc.    Auto Parts:O.E.M.       1566908648      1
+CarMax Inc      Automotive Aftermarket  787064338       1
+Coca-Cola Company (The) Beverages (Production/Distribution)     2807209312      1
+Quintiles Transitional Holdings Inc.    Biotechnology: Commercial Physical & Biological Resarch 5729415178      1
+Medtronic, Inc. Biotechnology: Electromedical & Electrotherapeutic Apparatus    1860440479      1
+PerkinElmer, Inc.       Biotechnology: Laboratory Analytical Instruments        364624911       1
+Pearson, Plc    Books   56977521        1
+CBS Corporation Broadcasting    2918598828      1
+Cemex S.A.B. de C.V.    Building Materials      2730482992      1
+Acuity Brands Inc       Building Products       135104836       1
+Brookfield Office Properties Inc.       Building operators      1160382247      1
+Xerox Corporation       Business Services       2576306387      1
+Systemax Inc.   Catalog/Specialty Distribution  24937279        1
+Gap, Inc. (The) Clothing/Shoe/Accessory Stores  2388217100      1
+Peabody Energy Corporation      Coal Mining     1731067764      1
+Barclays PLC    Commercial Banks        984445735       1
+Juniper Networks, Inc.  Computer Communications Equipment       2836960200      1
+Hewlett-Packard Company Computer Manufacturing  4402830056      1
+Oracle Corporation      Computer Software: Prepackaged Software 8449484059      1
+Red Hat, Inc.   Computer Software: Programming, Data Processing 688198423       1
+Caterpillar, Inc.       Construction/Ag Equipment/Trucks        3217376894      1
+General Electric Company        Consumer Electronics/Appliances 29641780824     1
+Best Buy Co., Inc.      Consumer Electronics/Video Chains       1974549404      1
+Tiffany & Co.   Consumer Specialties    708117114       1
+CSS Industries, Inc.    Consumer: Greeting Cards        8317006 1
+Owens-Illinois, Inc.    Containers/Packaging    690873437       1
+Wal-Mart Stores, Inc.   Department/Specialty Retail Stores      4844646277      1
+Corrections Corporation of America      Diversified Commercial Services 323926011       1
+PHH Corp        Diversified Financial Services  176993822       1
+Unisys Corporation      EDP Services    1071345176      1
+Dynegy Inc.     Electric Utilities: Central     3040910871      1
+Teradyne, Inc.  Electrical Products     1414947476      1
+EMC Corporation Electronic Components   6134830941      1
+Gamestop Corporation    Electronics Distribution        1211811208      1
+Quanta Services, Inc.   Engineering & Construction      756174388       1
+Waste Management, Inc.  Environmental Services  832209100       1
+Altria Group    Farming/Seeds/Milling   4386395014      1
+Federal Agricultural Mortgage Corporation       Finance Companies       72047987        1
+Arlington Asset Investment Corp Finance/Investors Services      103335200       1
+CIT Group Inc (DEL)     Finance: Consumer Services      10546254716     1
+ITT Corporation Fluid Controls  418084340       1
+Kroger Company (The)    Food Chains     2159915897      1
+Sysco Corporation       Food Distributors       1022578207      1
+Masco Corporation       Forest Products 1407993791      1
+Tutor Perini Corporation        General Bldg Contractors - Nonresidential Bldgs 43612100        1
+Williams-Sonoma, Inc.   Home Furnishings        562389192       1
+D.R. Horton, Inc.       Homebuilding    2393710484      1
+Tenet Healthcare Corporation    Hospital/Nursing Management     2056424722      1
+Las Vegas Sands Corp.   Hotels/Resorts  9165061827      1
+Deere & Company Industrial Machinery/Components 1437981389      1
+Johnson Controls, Inc.  Industrial Specialties  1737534987      1
+Exxon Mobil Corporation Integrated oil Companies        7217975394      1
+Morgan Stanley  Investment Bankers/Brokers/Service      7669478221      1
+Invesco Plc     Investment Managers     1259147304      1
+Genworth Financial Inc  Life Insurance  4690109136      1
+Bank of America Corporation     Major Banks     83575954432     1
+Dow Chemical Company (The)      Major Chemicals 4550678419      1
+Pfizer, Inc.    Major Pharmaceuticals   14067554585     1
+Carnival Corporation    Marine Transportation   1483471943      1
+Tyson Foods, Inc.       Meat/Poultry/Fish       1178052970      1
+UnitedHealth Group Incorporated Medical Specialities    3117080472      1
+Boston Scientific Corporation   Medical/Dental Instruments      4084868162      1
+CVS Corporation Medical/Nursing Services        3191953812      1
+Alcoa Inc.      Metal Fabrications      9048725075      1
+Fluor Corporation       Military/Government/Technical   949935210       1
+Hecla Mining Company    Mining & Quarrying of Nonmetallic Minerals (No Fuels)   2406619605      1
+Scudder High Income Trust       Miscellaneous   15332552        1
+International Game Technology   Miscellaneous manufacturing industries  1327222198      1
+Harley-Davidson, Inc.   Motor Vehicles  1319110337      1
+Regal Entertainment Group       Movies/Entertainment    337082630       1
+Williams Companies, Inc. (The)  Natural Gas Distribution        1855054875      1
+Gannett Co., Inc.       Newspapers/Magazines    2031958419      1
+NCR Corporation Office Equipment/Supplies/Services      641735277       1
+Petroleo Brasileiro S.A.- Petrobras     Oil & Gas Production    4594695427      1
+Macquarie Infrastructure Company LLC    Oil Refining/Marketing  154214587       1
+Atmos Energy Corporation        Oil/Gas Transmission    147259001       1
+Halliburton Company     Oilfield Services/Equipment     3920116581      1
+Cooper Companies, Inc. (The)    Ophthalmic Goods        166012815       1
+Sturm, Ruger & Company, Inc.    Ordnance And Accessories        76623562        1
+Tyco International, Ltd. (Switzerland)  Other Consumer Services 1322919485      1
+Cardinal Health, Inc.   Other Pharmaceuticals   845634082       1
+Office Depot, Inc.      Other Specialty Stores  1870445365      1
+Procter & Gamble Company (The)  Package Goods/Cosmetics 3355239028      1
+Archer-Daniels-Midland Company  Packaged Foods  1507629530      1
+PPG Industries, Inc.    Paints/Coatings 447840867       1
+International Paper Company     Paper   1984955168      1
+Newell Rubbermaid Inc.  Plastic Products        1253613316      1
+Donaldson Company, Inc. Pollution Control Equipment     119505165       1
+Duke Energy Corporation Power Generation        2146844527      1
+Freeport-McMoran Copper & Gold, Inc.    Precious Metals 4565887733      1
+Monster Worldwide, Inc. Professional Services   597797880       1
+American International Group, Inc.      Property-Casualty Insurers      16130113652     1
+Deluxe Corporation      Publishing      110585331       1
+Home Depot, Inc. (The)  RETAIL: Building Materials      4409711872      1
+Motorola Solutions, Inc.        Radio And Television Broadcasting And Communications Equipment  6739005800      1
+CSX Corporation Railroads       1575469322      1
+CBRE Group, Inc.        Real Estate     1539173343      1
+Host Hotels & Resorts, Inc.     Real Estate Investment Trusts   3817292008      1
+Callaway Golf Company   Recreational Products/Toys      265625860       1
+Hertz Global Holdings, Inc      Rental/Leasing Companies        862244949       1
+McDonald&#39;s Corporation      Restaurants     2400472398      1
+Ingram Micro Inc.       Retail: Computer Software & Peripheral Equipment        426017015       1
+Astoria Financial Corporation   Savings Institutions    426807662       1
+Advanced Micro Devices, Inc.    Semiconductors  5908207016      1
+Live Nation Entertainment, Inc. Services-Misc. Amusement & Recreation   221297509       1
+Nike, Inc.      Shoe Manufacturing      910154749       1
+Ashland Inc.    Specialty Chemicals     452934248       1
+Dean Foods Company      Specialty Foods 733559379       1
+Marsh & McLennan Companies, Inc.        Specialty Insurers      1272745920      1
+United States Steel Corporation Steel/Iron Ore  3566227022      1
+Sprint Corporation      Telecommunications Equipment    12001896865     1
+Time Warner Inc.        Television Services     3543162503      1
+Xerium Technologies, Inc.       Textiles        71370477        1
+Toro Company (The)      Tools/Hardware  119274175       1
+GATX Corporation        Transportation Services 172984270       1
+United Parcel Service, Inc.     Trucking Freight/Courier Services       1303391315      1
+American Water Works    Water Supply    283494102       1
+BlueLinx Holdings Inc.  Wholesale Distributors  12349561        1
+Apollo Investment Corporation   n/a     673065902       1
+Time taken: 78.566 seconds, Fetched: 127 row(s)
