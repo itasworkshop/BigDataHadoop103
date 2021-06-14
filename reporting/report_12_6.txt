@@ -1,15 +1,15 @@
 Deep - 1
 rangappa -1
-Amey - 1
+Amey - 0 
 anand tiwari - 0
 Anu - 0 absent
 Anurath - 1
-aparna - 0 
-bhvesh - 1
+aparna - 1
+bhvesh - 0 absent
 chkradhar - 1
 dipthi - 1
-harekrishna - 1
-Julekha - 0
+harekrishna - 0
+Julekha - 1
 Lopmudra - 1
 Farooqui - 1
 Madhu - 0
@@ -31,7 +31,7 @@ Ravindra - 0 absent
 Rohit - 0 absent
 Sachin - 0 Absent
 shefali - 0 absent
-Soundrya - 1
+Soundrya - 0
 Sunil - 0 absent
 TDprasad - 1
 Umesh - pending
