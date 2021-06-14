@@ -1,41 +1,50 @@
 misc-assaingnment-1
 
 1. What is Default replication factor and how will you change it at file level?
-Ans: The default replication factor is three
-We can change with the help of hdfs-site.xml command
---------------------------------------------------------------------------------------------------------------------
-2. Why do we need replication factor > 1 in production Hadoop cluster?
-Ans: If a particular block of memory is crashed, replication greater than one is helpful to retrieve the lost data
-----------------------------------------------------------------------------------------------------------------------
-3. How will you combine the 4 part-r files of a mapreduce job?
- Ans: hdfs dfs -getmerge -nl /path1/ /path2/ /path3/ /path4/
----------------------------------------------------------------------------------------------------------------------- 
-4. What are the Compression techniques in HDFS and which is the best one and why?
-Ans: Snappy because its storage space is high and CPU usage is low, other compression techniques are like lzo, gzip, bzip2..
-------------------------------------------------------------------------------------------------------------------------- 
-5. How will you view the compressed files via HDFS command?
-Ans: Hadoop fs -text, but make sure to configured snappy codec in core-site.xml
------------------------------------------------------------------------------------------------------------------------- 
-6. What is Secondary Namenode and its Functionalities? why do we need it?
-Ans: It is a helper node and cant replace name node, it just copies th fsimage and so updated.
------------------------------------------------------------------------------------------------------------------------------ 
-7. What is Backup node and how is it different from Secondary namenode?
-Ans Backup node  is checkpoint node that check points and supports the online streaming of file system  edits
------------------------------------------------------------------------------------------------------------------------------- 
-8. What is FSimage and editlogs and how they are related?
-Ans: FSimage is snapshot file system of modification time and access time and permission, replication are stored, editlogs are like storing activities/transactions in hdfs.
-------------------------------------------------------------------------------------------------------------------------------- 
-9. what is default block size in HDFS? and why is it so large?
-Ans: 128MB because no need to create many blocks and reduce the metadata generated per block.
--------------------------------------------------------------------------------------------------------------------------------- 
-10. How will you copy a large file of 50GB into HDFS in parllel
-Ans: distcp command
--------------------------------------------------------------------------------------------------------------------------------- 
-11. what is Balancing in HDFS?
-Ams: A uniformly utilising the data nodes in hdfs
---------------------------------------------------------------------------------------------------------------------------------- 
-12. What is expunge in HDFS ?
-Ans: Name itself indicates to expel something like trash files in HDFS 
-Hadoop fs -expunge
+1
+Namenode's URI is hdfs://localhost:8020, it’s configured with fs.default.name property that’s specified
+in $HADOOP_CONF_DIR/core-site.xml
+NOTE: 8020 and 9000 are IPC ports for namenode. The default port for namenode UI is 50070.
 
-Thanks.....
+2
+Namenode will store its image under /home/hadoop/Training/hadoop_work/data/name, it's configured
+with dfs.namenode.name.dir property thats specified in $HADOOP_CONF_DIR/hdfs-site.xml
+
+3
+Datanode will store data blocks under /home/hadoop/Training/hadoop_work/data/data, it's configured
+with dfs.datanode.data.dir property that’s specified in $HADOOP_CONF_DIR/hdfs-site.xml
+
+4
+Replication is set to 1, it's configured with dfs.replication property that’s specified in
+$HADOOP_CONF_DIR/hdfs-site.xml
+
+
+Perform Solution
+1. Perform the following steps:
+	$ cd $HADOOP_HOME/sbin
+	$ ./start-dfs.sh This will start the Namenode, Secondary Namenode all the configured
+	Datanodes, which in this case is just one (localhost)
+	You can verify with the browser or via command line:
+		Open a browser and just navigate to http://localhost:50070, make sure there are no warnings
+	under 'Cluster Summary' section and there is 1 live node. We must make sure there are no 'Dead Nodes' 
+	
+	Secondary Namenode can be confirmed via http://localhost:50090
+	Execute on the command line $ hadoop dfsadmin -report, you will get a report about the
+	live node 1, dead node 0
+2. $ hdfs dfs -mkdir /exercise1
+3. Perform the following steps:
+a. $ cd /home/cloudera/Data
+b. $ hdfs dfs -put  /exercise1/
+4. $ hdfs dfs -ls /exercise1/
+5. Perform the following steps:
+a. $ hdfs dfs -du -h largedeck.txt
+	693 M  693 M  largedeck.txt
+6. $ hdfs dfs -cat largedeck.txt | head -n 25 largedeck.txt
+7. $ hdfs dfs -cp /exercise1/largedeck.txt /exercise1/largedeckcopy.txt
+8. $ hdfs dfs -get /exercise1/hamlet.txt hamlet_copy.txt
+9. $ hdfs fsck /
+10.hdfs dfs -cp largedeck.txt /user/cloudera/new_folder
+ $ hdfs dfs -rm new_folder
+
+11. $ hdfs dfs -rm -r 
+12. $ hdfs dfs -help
