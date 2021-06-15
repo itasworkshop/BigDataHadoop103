@@ -1,0 +1,53 @@
+==sudo sqoop list-databases --connect "jdbc:mysql://quickstart.cloudera:3306" --username root --password cloudera
+
+sudo sqoop list-tables --connect "jdbc:mysql://quickstart.cloudera:3306/retail_db" --username root --password cloudera
+
+sqoop eval --connect "jdbc:mysql://quickstart.cloudera:3306/retail_db" --username root --password cloudera --query "select count(1) from order_items"
+
+sqoop import-all-tables --connect "jdbc:mysql://quickstart.cloudera:3306/retail_db" --username root --password cloudera --warehouse-dir /user/root/all_tables
+
+sqoop import-all-tables -m 12 --connect "jdbc:mysql://quickstart.cloudera:3306/retail_db" --username root --password cloudera --as-avrodatafile --warehouse-dir /user/hive/warehouse/retail_stage.db
+
+// default split is 4, importing only 1 table
+
+sqoop import --connect "jdbc:mysql://quickstart.cloudera:3306/retail_db" --username root --password cloudera --table departments --as-textfile --target-dir /user/root/all-tables1
+
+// incremental load. loading items into hdfs with newly inserted row information.
+
+sqoop import --connect "jdbc:mysql://quickstart.cloudera:3306/retail_db" --username root --password cloudera --table departments --as-textfile --target-dir /user/root/all-tables1 --append --fields-terminated-by '|' --lines-terminated-by '\n' --check-column "department_id" --incremental append --last-value 7 --outdir java_files
+
+//incremental load using 'where' condition. loading only items into hdfs which are newly inserted.Here it will insert department_id more than 15
+
+sqoop import --connect "jdbc:mysql://quickstart.cloudera:3306/retail_db" --username root --password cloudera --table departments --as-textfile --target-dir /user/root/all-tables1 --append --fields-terminated-by '|' --lines-terminated-by '\n' --where "department_id>15" --check-column "department_id" --incremental append --last-value 7 --outdir java_files
+
+
+--creating database in mysql 
+
+mysql -u root -p
+show databases;
+create database retail_rpt_db;
+grant all  on retail_rpt_db.* to retail_db;
+flush privileges;
+create table departments as select * from retail_db.departments where 1=2;
+select * from departments;
+
+//inserting new rows
+insert into departments  values(9,"sports");
+//inserting value according to row id
+insert into departments(department_id)  values(10);
+//updating row value by giving row id
+update departments set department_name="tourism" where department_id = 10;
+
+//creating databases
+ create database test_db;
+//granting all privilegeto newly created database
+grant all on test_db .* to retail_db;
+
+//using flush privileges in order to reload grant tables 
+  flush privileges;
+// it will create empty set in test_db  which contains same schema as in retail_db
+create table departments as select * from retail_db.departments where 1=2;
+
+
+##Exporting hdfs into database
+sqoop export --connect "jdbc:mysql://quickstart.cloudera:3306/test_db" --username root --password cloudera --table departments --export-dir /user/hive/warehouse/retail_stage.db/departments --input-fields-terminated-by '|' --input-lines-terminated-by '\n' --num-mappers 2 --batch --outdir java_files

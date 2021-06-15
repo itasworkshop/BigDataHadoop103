@@ -1,0 +1,14 @@
+Intalling scala Linux
+
+java -version
+sudo apt-get update
+sudo apt-get install scala
+scala
+
+Installing spark Linux
+wget https://downloads.apache.org/spark/spark-3.0.2/spark-3.0.2-bin-hadoop3.2.tgz
+tar xfz spark-3.0.2-bin-hadoop3.2.tgz 
+cd spark-3.0.2-bin-hadoop3.2/bin
+./spark-shell
+
+

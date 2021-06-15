@@ -1,0 +1,131 @@
+scala> val names = Seq("raj","rajesh","suraj")
+names: Seq[String] = List(raj, rajesh, suraj)
+
+scala> names
+res0: Seq[String] = List(raj, rajesh, suraj)
+
+scala> val ids = Seq(1,2,3,4,6)
+ids: Seq[Int] = List(1, 2, 3, 4, 6)
+
+scala> ids
+res1: Seq[Int] = List(1, 2, 3, 4, 6)
+
+scala> ids.foreach(x => println(x**2))
+<console>:9: error: value ** is not a member of Int
+              ids.foreach(x => println(x**2))
+                                        ^
+
+scala> ids.foreach(x => println(x*x))
+1
+4
+9
+16
+36
+
+scala> ids
+res4: Seq[Int] = List(1, 2, 3, 4, 6)
+
+scala> ids.map(x => x*x)
+res5: Seq[Int] = List(1, 4, 9, 16, 36)
+
+scala> ids.reduce(x => x+=x)
+<console>:9: error: wrong number of parameters; expected = 2
+              ids.reduce(x => x+=x)
+                           ^
+
+scala> ids.reduce(x,x => x+=x)
+<console>:9: error: too many arguments for method reduce: (op: (A1, A1) => A1)A1
+              ids.reduce(x,x => x+=x)
+                        ^
+
+scala> ids.reduce(x,y => x+=y)
+<console>:9: error: too many arguments for method reduce: (op: (A1, A1) => A1)A1
+              ids.reduce(x,y => x+=y)
+                        ^
+
+scala> ids.reduce((x,y) => x+=y)
+<console>:9: error: value += is not a member of Int
+              ids.reduce((x,y) => x+=y)
+                                   ^
+
+scala> ids.reduce((x,y) => x+y)
+res10: Int = 16
+
+scala> ids
+res11: Seq[Int] = List(1, 2, 3, 4, 6)
+
+scala> nmaes
+<console>:8: error: not found: value nmaes
+              nmaes
+              ^
+
+scala> names
+res13: Seq[String] = List(raj, rajesh, suraj)
+
+scala> ids
+res14: Seq[Int] = List(1, 2, 3, 4, 6)
+
+scala> ids.flatmap(x => x*x)
+<console>:9: error: value flatmap is not a member of Seq[Int]
+              ids.flatmap(x => x*x)
+                  ^
+
+scala> ids.flatMap(x => x*x)
+<console>:9: error: type mismatch;
+ found   : Int
+ required: scala.collection.GenTraversableOnce[?]
+              ids.flatMap(x => x*x)
+                                ^
+
+scala> names
+res17: Seq[String] = List(raj, rajesh, suraj)
+
+scala> names.map(x => x+"sharma")
+res18: Seq[String] = List(rajsharma, rajeshsharma, surajsharma)
+
+scala> names.flatMap(x => x+"sharma")
+res19: Seq[Char] = List(r, a, j, s, h, a, r, m, a, r, a, j, e, s, h, s, h, a, r, m, a, s, u, r, a, j, s, h, a, r, m, a)
+
+scala> names.flaten
+<console>:9: error: value flaten is not a member of Seq[String]
+              names.flaten
+                    ^
+
+scala> names
+res21: Seq[String] = List(raj, rajesh, suraj)
+
+scala> names.flaten()
+<console>:9: error: value flaten is not a member of Seq[String]
+              names.flaten()
+                    ^
+
+scala> names.flatten()
+<console>:9: error: not enough arguments for method flatten: (implicit asTraversable: String => scala.collection.GenTraversableOnce[B])Seq[B].
+Unspecified value parameter asTraversable.
+              names.flatten()
+                           ^
+
+scala> names.flatten
+res24: Seq[Char] = List(r, a, j, r, a, j, e, s, h, s, u, r, a, j)
+
+scala> names
+res25: Seq[String] = List(raj, rajesh, suraj)
+
+scala> names.flatMap(x => x+"sharma")
+res26: Seq[Char] = List(r, a, j, s, h, a, r, m, a, r, a, j, e, s, h, s, h, a, r, m, a, s, u, r, a, j, s, h, a, r, m, a)
+
+scala> names.map(x => x+"sharma")
+res27: Seq[String] = List(rajsharma, rajeshsharma, surajsharma)
+
+scala> val multi = (x:Int, y:Int) => x*y
+multi: (Int, Int) => Int = <function2>
+
+scala> multi(4,5)
+res28: Int = 20
+
+scala> multi(4,50)
+res29: Int = 200
+
+scala> names
+res30: Seq[String] = List(raj, rajesh, suraj)
+

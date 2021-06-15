@@ -1,0 +1,99 @@
+show table;
+
+create table cards(colour string,suit string,value string)
+row format delimited fields terminated by '|'  stored as textfile;
+
+describe cards;
+
+load data local inpath '/home/cloudera/Documents/data-master/deckofcards.txt' into table cards;
+
+create table cards1(colour string,suit string,value string)
+row format delimited fields terminated by '|'  stored as textfile;
+
+load data inpath '/user/hive/data-master/deckofcards.txt' into table cards1;
+
+select count(*) from cards1;
+
+select count(1) from cards1 where colour like 'BLACK';
+
+create external table cards2(colour string,suit string,value string)
+row format delimited fields terminated by '|'  
+stored as textfile
+location '/user/hive/data-master/cards-data';
+
+//it will two couloumn table with respectibe data coloumn number.
+create external table cards3(colour string,suit string)
+row format delimited fields terminated by '|'  
+stored as textfile
+location '/user/hive/data-master/cards-data';
+
+//It inserts null in extra column.
+create external table cards4(colour string,suit string,value string, extra string)
+row format delimited fields terminated by '|'  
+stored as textfile
+location '/user/hive/data-master/cards-data';
+
+//If data is matching it takes data otherwise it will put null.
+create external table cards5(colour string,suit string,value BIGINT)
+row format delimited fields terminated by '|'  
+stored as textfile
+location '/user/hive/data-master/cards-data';
+
+//partitioning
+create table cards6(colour string,value string,suit string)
+partitioned by(first string)
+row format delimited fields terminated by '|'  stored as textfile;
+
+load data inpath '/user/hive/data-master/largedeck.txt' into table cards6 partition(first='1') ;
+
+create table nyse_data
+(stockticker string,
+ tradingdate string,
+ open_price float,
+ high_price float,
+ low_price float,
+ close_price float,
+ volume bigint)
+ row format delimited fields terminated by ','
+ stored as textfile;
+
+load data inpath '/user/hive/data-master/nyse-data/nyse_2009.csv' into nyse_data;
+
+create external table company_list
+(symbol string,
+ name string,
+ lastsale decimal,
+ marketcap decimal,
+ col_5 string,
+ col_6 string,
+ sector string,
+ industry string,
+ url string)
+ row format delimited fields terminated by '|'
+ location '/user/hive/data-master/company-list';
+
+//calculate volume traded per sector, per industry?
+select c.sector,c.industry,sum(n.volume) 
+from company_list c , nyse_data1 n 
+where c.symbol= n.stockticker 
+group by c.sector,c.industry; 
+
+select c.sector,c.industry,sum(n.volume)
+from company_list c join nyse_data1 n
+on(c.symbol= n.stockticker) group by c.sector,c.industry;
+
+//calculate volume traded per sector, per industry for total volume greater than 5000000?
+select c.sector,c.industry,sum(n.volume)
+from company_list c , nyse_data1 n
+where c.symbol= n.stockticker  group by c.sector,c.industry having sum(n.volume)>5000000;
+
+//calculate volume traded per sector, per industry for total volume greater than 5000000 and disply in descending order?
+select c.sector,c.industry,sum(n.volume) total
+from company_list c , nyse_data n
+where c.symbol= n.stockticker group by c.sector,c.industry having sum(n.volume) > 500000000
+order by total desc;
+
+
+
+
+

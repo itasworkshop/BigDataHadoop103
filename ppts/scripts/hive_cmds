@@ -1,0 +1,99 @@
+Hive CLI
+
+1. Creating table
+
+create table cards(color string, suit string, type string)
+row format delimited fields 
+terminated by '|'
+stored as textfile;
+
+creating external table/ reusing existing hdfs file
+create external table cards1(color string, suit string, type string)
+row format delimited fields    terminated by '|'
+stored as textfile
+location '/sample_input';
+
+2. Loading data from local
+load data local inpath '/home/cloudera/Documents/input'
+overwrite into table cards;
+
+Loading data from HDFS
+load data inpath '/sample_input'
+overwrite into table cards;
+
+3. select count(color) from cards;
+
+4. No of black Queen
+select count(*) from cards where color= 'BLACK' and type= 'Q';
+
+5. Limiting
+select * from cards limit 5;
+
+6. Droping
+drop table cards;
+
+7. Partitioning
+
+create table cards2(color string,suit string,type string)
+partitioned by (mypart string)
+row format delimited fields 
+terminated by '|'
+stored as textfile;
+
+7.1 Loading partitioned data
+
+load data local inpath '/home/cloudera/Documents/input'
+overwrite into table cards2 partition(mypart= 'CLUB');
+
+load data local inpath '/home/cloudera/Documents/input'
+overwrite into table cards2 partition(mypart= 'ETC');
+
+
+8 Bucketing
+
+create table cards3(color string,suit string,type string)
+clustered by (color) into 2 buckets;
+
+create table cards4(color string,suit string,type string)
+clustered by (color) into 2 buckets;
+
+create table cards5(color string,suit string,type string)
+clustered by (color) into 2 buckets;
+
+set hive.enforce.bucketing = true;
+
+insert overwrite table cards4 select color,type, count(suit) from cards group by color,type;
+
+
+insert overwrite table cards5 select color,suit, type from cards;
+
+
+date_part
+	buck-0
+	buck-1
+	
+create table cards3(color string,suit string,type string)
+clustered by (color) into 2 buckets;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
