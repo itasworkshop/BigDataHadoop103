@@ -1,0 +1,171 @@
+praveen@praveen-OptiPlex-9010:~$ scala
+Welcome to Scala 2.11.12 (OpenJDK 64-Bit Server VM, Java 1.8.0_292).
+Type in expressions for evaluation. Or try :help.
+
+scala> val x = 10;
+x: Int = 10
+
+scala> x +20;
+res0: Int = 30
+
+scala> val = Seq("raj","rajesh","suraj")
+<console>:1: error: illegal start of simple pattern
+val = Seq("raj","rajesh","suraj")
+    ^
+
+scala> val names = Seq("raj","rajesh","suraj")
+names: Seq[String] = List(raj, rajesh, suraj)
+
+scala> val ids = [1,2,3,4,5]
+<console>:1: error: illegal start of simple expression
+val ids = [1,2,3,4,5]
+          ^
+
+scala> val ids = List(1,2,3,4,5)
+ids: List[Int] = List(1, 2, 3, 4, 5)
+
+scala> ids
+res1: List[Int] = List(1, 2, 3, 4, 5)
+
+scala> names
+res2: Seq[String] = List(raj, rajesh, suraj)
+
+scala> ids
+res3: List[Int] = List(1, 2, 3, 4, 5)
+
+scala> ids[0]
+<console>:1: error: identifier expected but integer literal found.
+ids[0]
+    ^
+
+scala> ids.foreach(x => println(x))
+1
+2
+3
+4
+5
+
+scala> ids
+res5: List[Int] = List(1, 2, 3, 4, 5)
+
+scala> ids[0]
+<console>:1: error: identifier expected but integer literal found.
+ids[0]
+    ^
+
+scala> ids.indexOf(3)
+res6: Int = 2
+
+scala> ids.take(3)
+res7: List[Int] = List(1, 2, 3)
+
+scala> ids.toString()
+res8: String = List(1, 2, 3, 4, 5)
+
+scala> ids.sum()
+<console>:13: error: not enough arguments for method sum: (implicit num: Numeric[B])B.
+Unspecified value parameter num.
+       ids.sum()
+              ^
+
+scala> ids.sum
+res10: Int = 15
+
+scala> names
+res11: Seq[String] = List(raj, rajesh, suraj)
+
+scala> names.foreach(x => println(x))
+raj
+rajesh
+suraj
+
+scala> names.get(1)
+<console>:13: error: value get is not a member of Seq[String]
+       names.get(1)
+             ^
+
+scala> names.getValue(1)
+<console>:13: error: value getValue is not a member of Seq[String]
+       names.getValue(1)
+             ^
+
+scala> names[1]
+<console>:1: error: identifier expected but integer literal found.
+names[1]
+      ^
+
+scala> names.lift(1)
+res15: Option[String] = Some(rajesh)
+
+scala> names.lift(4)
+res16: Option[String] = None
+
+scala> names(1)
+res17: String = rajesh
+
+scala> names(-1)
+java.lang.IndexOutOfBoundsException: -1
+  at scala.collection.LinearSeqOptimized$class.apply(LinearSeqOptimized.scala:65)
+  at scala.collection.immutable.List.apply(List.scala:84)
+  ... 32 elided
+
+scala> names
+res19: Seq[String] = List(raj, rajesh, suraj)
+
+scala> names( 0 until 2)
+<console>:13: error: type mismatch;
+ found   : scala.collection.immutable.Range
+ required: Int
+       names( 0 until 2)
+                ^
+
+scala> names.foreach( 0 until 2)
+<console>:13: error: type mismatch;
+ found   : scala.collection.immutable.Range
+ required: String => ?
+       names.foreach( 0 until 2)
+                        ^
+
+scala> names.foreach(x => println(x))
+raj
+rajesh
+suraj
+
+scala> var i = 0;
+i: Int = 0
+
+scala> for(i <- 1 until 2){
+     | println(i)
+     | }
+1
+
+scala> for(i <- 1 to 2){
+     | println(i)
+     | }
+1
+2
+
+scala> for(i <- 1 to 2){
+     | println(names(i))
+     | }
+rajesh
+suraj
+
+scala> ids
+res26: List[Int] = List(1, 2, 3, 4, 5)
+
+scala> ids.map(x => x*x)
+res27: List[Int] = List(1, 4, 9, 16, 25)
+
+scala> ids.reduce((x,y) => x+y)
+res28: Int = 15
+
+scala> ids.filter(x => x >=3)
+res29: List[Int] = List(3, 4, 5)
+
+scala> ids.filter(x => x >=5)
+res30: List[Int] = List(5)
+
+scala> ids.filter(x => x >=6)
+res31: List[Int] = List()
+
