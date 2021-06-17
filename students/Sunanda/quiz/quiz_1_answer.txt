@@ -1,4 +1,33 @@
-1) Link question?
-answer : Output will be 4 becaouse of prevent default.
+
+1. What is Default replication factor and how will you change it at file level?
+ The replication factor is 3 by default and hence any file you create in HDFS will have a replication factor of 3 and each block from the file will be copied to 3 different nodes in your cluster.
+2. Why do we need replication factor > 1 in production Hadoop cluster?
+ Replication ensures the availability of the data. ... You can configure the Replication factor in you hdfs-site. xml file. Here, we have set the replication Factor to one as we have only a single system to work with Hadoop i.e. a single laptop, as we don't have any Cluster with lots of the nodes
+ 3. . How will you combine the 4 part-r files of a mapreduce job?
+ In Hadoop MapReduce job, each Reducer produces one output file with name part-r-nnnnn ,    nnnnn is the sequence number of the file and is based on the number of reducers set for the job.To merge these output files into a single file in HDFS, One way is to use a single Reducer, else, we can create an MR job with a set of mappers and a single reducer.
+5. . How will you view the compressed files via HDFS command?
+How to read compressed data from hdfs through hadoop command
+1.	Step 1: Copy any compressed file to your hdfs dir:
+2.	Step 2: Now you can use in-build hdfs text command to read this .gz file’
+
+6. . What is Secondary Namenode and its Functionalities? why do we need it?
+Secondary NameNode in hadoop is a specially dedicated node in HDFS cluster whose main function is to take checkpoints of the file system metadata present on namenode. So, at any point of time, applying edits log records to FsImage (recently saved copy) will give the current status of FsImage, i.e. file system metadata.
+
+7. What is Backup node and how is it different from Secondary namenode?
+ the biggest difference is  unlike Secondary NameNode  the Backup node does not need to download fsimage and edits files from the active NameNode to create a checkpoint, as it already has an up-to-date state of the namespace in it's own main memory.
+
+8. . What is FSimage and editlogs and how they are related?
+FsImage is a file stored on the OS filesystem that contains the complete directory structure (namespace) of the HDFS with details about the location of the data on the Data Blocks and which blocks are stored on which node. This file is used by the NameNode when it is started.
+EditLogs is a transaction log that records the changes in the HDFS file system or any action performed on the HDFS cluster such as addition of a new block, replication, deletion etc. In short, it records the changes since the last FsImage was created.
+9. what is default block size in HDFS? and why is it so large?
+ The default size of a block in HDFS is 128 MB (Hadoop 2. x) ,which is much larger as compared to the Linux system where the block size is 4KB. The reason of having this huge block size is to minimize the cost of seek and reduce the meta data information generated per block.
+
+10. How will you copy a large file of 50GB into HDFS in parallel ?
+Hadoop itself is responsible for copy a large file into hdfs in parallel.
+
+11.What is balancing in HDFS?
+HDFS provides a balancer utility. This utility analyzes block placement and balances data across the DataNodes. It keeps on moving blocks until the cluster is deemed to be balanced, which means that the utlization of every DataNode is uniform.
+12.what is expunge in hdfs?
+  expunge in HDFS : This command is used to empty the trash available in an HDFS system .
 
 
