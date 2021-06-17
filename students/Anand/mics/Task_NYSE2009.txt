@@ -1,0 +1,38 @@
+=============Table creation and Data load================
+
+Create the table into Hive and load the data from the files. 
+
+1.create a table nyse_data
+create table nyse_data(stock_ticker string,trading_date string,open_price float,high_price float,low_price float,close_price float,volume bigint)
+row format delimited 
+fields terminated by ','
+stored as textfile;
+
+2.Load the data into table nyse.
+load data local inpath '/home/cloudera/Documents/nyse_2009.csv' into table nyse_data;
+
+3.create a table company
+create table company(symbol string,name string,lastsale decimal,marketcap decimal,col_5 string,col_6 string,sector string,industry string, url string)
+row format delimited 
+fields terminated by '|' 
+stored as textfile;
+
+4.load the data into company table.
+load data local inpath '/home/cloudera/Documents/companylist_noheader.csv ’ into table company;
+
+
+==========Hive Sql Query====================
+Find the maximuim value of the stock traded. 
+1. for company wise
+SELECT c.name  company_name ,max(n.volume)  max_share_count FROM nyse_data n join
+company  c on n.stockticker=c.symbol group by c.name order by max_share_count desc LIMIT 1;
+Result- Bank of America Corporation 1226792000
+
+2. for industry wise
+SELECT c.industry  industry_name ,max(n.volume)  max_share_count FROM nyse_data n join company  c on n.stockticker=c.symbol group by c.industry order by max_share_count desc LIMIT 1;
+Result- Major Banks 1226792000
+
+3. for sector wise
+SELECT c.sector  sector_name ,max(n.volume)  max_share_count FROM nyse_data n join
+company  c on n.stockticker=c.symbol group by c.sector order by max_share_count desc LIMIT 1;
+Result- Finance 1226792000

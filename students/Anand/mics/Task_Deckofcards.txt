@@ -1,0 +1,38 @@
+================Question -1==================
+Find the no of black queen present in deckofcards.txt file.
+
+scala> val cards = sc.textFile("/user/cloudera/mydir1/deckofcards.txt");
+cards: org.apache.spark.rdd.RDD[String] =
+/user/cloudera/mydir1/deckofcards.txt MapPartitionsRDD[7] at textFile
+at <console>:27
+
+scala> val blackQueen = cards.filter(x=>x.contains("BLACK") && x.contains("Q"))
+blackQueen: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[8] at
+filter at <console>:29
+
+scala> blackQueen.count()
+
+res1: Long = 2
+
+scala> blackQueen.collect().foreach(println)
+
+BLACK|SPADE|Q
+BLACK|CLUB|Q
+
+scala>
+
+================Question -2==================
+Find the no of black queen present in largedeck.txt file.
+
+scala> val cards1 = sc.textFile("/user/cloudera/mydir1/largedeck.txt");
+cards1: org.apache.spark.rdd.RDD[String] =
+/user/cloudera/mydir1/largedeck.txt MapPartitionsRDD[1] at textFile at
+<console>:27
+
+scala> val blackQueen = cards1.filter(x=>x.contains("BLACK") && x.contains("Q"))
+blackQueen: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[2] at
+filter at <console>:29
+
+scala> blackQueen.count()
+
+res0: Long = 2097152
