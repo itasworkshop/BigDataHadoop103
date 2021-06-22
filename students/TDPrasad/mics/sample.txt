@@ -1,125 +1,21 @@
-SCALA ASSAIGNMENT
-
+SCALA COUNT OF BLACK QUEEN IN SPARK-SHELL
 BY T DURGA PRASAD
 
-build.gradle(black_queen)
+var data = sc.textFile("/user/cloudera/deckofcards.txt")
 
-plugins {
-    id 'scala'
-    id 'java'
-}
+#creation of paired RDD
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+#so that black,Q is key count is value;
 
-repositories {
-    mavenCentral()
-}
+var colour_symb = data.map(x => x.split("\\|"))
 
-dependencies {
-    implementation 'org.scala-lang:scala-library:2.12.10'
-    implementation group: 'org.apache.spark', name: 'spark-core_2.12', version: '3.1.1'
-    implementation group: 'org.apache.spark', name: 'spark-sql_2.12', version: '3.1.1'
+var colour_symb = data.map(x => x.split("\\|")(0))
 
-}
+var colour_symb = data.map(x => (x.split("\\|")(0),x.split("\\|")(2)))
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'blackqvn'
-    }
-}
+var key_value = colour_symb.map(x => (x,1))
 
-test {
-    useJUnitPlatform()
-}
+var count_clr_sym = key_value.reduceByKey((a,b) => (a+b))
 
-SCALA_PROGRAME_
-
-
-
-import org.apache.spark.sql.SparkSession
-object testbcards {
-  def main(args:Array[String]): Unit ={
-
-
-    val session = SparkSession.builder()
-      .appName( name = "blackqvn")
-      .config("spark.master","local")
-      .getOrCreate()
-
-    val sc = session.sparkContext
-
-    val cards = sc.textFile( path = "file: D:\\prassadh\\Assaignments_CryptoTech\\BigDataHadoop103\\sample_data")
-    val colour_symb = data.map(x => (x.split("\\|")(0),x.split("\\|")(2)))
-
-    val key_value = colour_symb.map(x => (x,1))
-
-    val count_clr_sym = key_value.reduceByKey((a,b) => (a+b))
-    
-    count_clr_sym.collect()
-  }
-}
-
-
-
-Q) Grading
-
-
-object marks extends App {
-  println("Enter the student marks: ");
-
-  val marks:Int = scala.io.StdIn.readInt();
-  if (marks >= 90 && marks <= 100)
-  {
-    println("The student got Grade A")
-  }
-  else if (marks >= 80 && marks < 90)
-  {
-    println("The student got Grade B")
-  }
-  else if (marks >= 70 && marks < 80)
-  {
-    println("The student got Grade C")
-  }
-  else
-  {
-    println("The student is Failed")
-  }
-}
-
-
-PERSENTAGE STUDENTS
-
-class MaxAvg (id:Int, name:String, cmarks:Int, pmarks:Int, mmarks:Int) {
-
-    def result(){
-      var total:Int = this.cmarks + this.pmarks + this.mmarks;
-      var avg:Double = ((total.toDouble)./(300:Float))*100;
-      var out_put = avg.round;
-
-
-
-      println("id: " + this.id + " per:"+out_put);
-      println();
-
-    }
-
-  }
-
-  object class_data {
-
-    def main(args:Array[String]){
-
-      var m1 = new MaxAvg(id = 101, name = "Janu", cmarks = 45, pmarks = 55, mmarks = 67);
-      m1.result();
-
-      var m2 = new MaxAvg(id = 102, name = "Sannu", cmarks = 55, pmarks = 71, mmarks = 81);
-      m2.result();
-
-      var m3 = new MaxAvg(id = 103, name = "Pannu", cmarks = 65, pmarks = 76, mmarks = 70);
-      m3.result();
-
-
-    }
-
-    }
+scala> count_clr_sym.collect()
+res14: Array[((String, String), Int)] = Array(((BLACK,Q),2), ((RED,Q),2), ((BLACK,4),2), ((BLACK,J),2), ((BLACK,3),2), ((BLACK,10),2), ((RED,A),2), ((RED,7),2), ((BLACK,8),2), ((RED,9),2), ((BLACK,A),2), ((BLACK,2),2), ((RED,6),2), ((RED,J),2), ((BLACK,K),2), ((RED,4),2), ((RED,8),2), ((BLACK,6),2), ((RED,K),2), ((BLACK,7),2), ((BLACK,9),2), ((RED,3),2), ((RED,5),2), ((RED,2),2), ((RED,10),2), ((BLACK,5),2))
