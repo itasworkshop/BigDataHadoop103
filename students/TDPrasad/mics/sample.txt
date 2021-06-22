@@ -1,50 +1,125 @@
-misc-assaingnment-1
+SCALA ASSAIGNMENT
 
-1. What is Default replication factor and how will you change it at file level?
-1
-Namenode's URI is hdfs://localhost:8020, it’s configured with fs.default.name property that’s specified
-in $HADOOP_CONF_DIR/core-site.xml
-NOTE: 8020 and 9000 are IPC ports for namenode. The default port for namenode UI is 50070.
+BY T DURGA PRASAD
 
-2
-Namenode will store its image under /home/hadoop/Training/hadoop_work/data/name, it's configured
-with dfs.namenode.name.dir property thats specified in $HADOOP_CONF_DIR/hdfs-site.xml
+build.gradle(black_queen)
 
-3
-Datanode will store data blocks under /home/hadoop/Training/hadoop_work/data/data, it's configured
-with dfs.datanode.data.dir property that’s specified in $HADOOP_CONF_DIR/hdfs-site.xml
+plugins {
+    id 'scala'
+    id 'java'
+}
 
-4
-Replication is set to 1, it's configured with dfs.replication property that’s specified in
-$HADOOP_CONF_DIR/hdfs-site.xml
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.scala-lang:scala-library:2.12.10'
+    implementation group: 'org.apache.spark', name: 'spark-core_2.12', version: '3.1.1'
+    implementation group: 'org.apache.spark', name: 'spark-sql_2.12', version: '3.1.1'
+
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'blackqvn'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+SCALA_PROGRAME_
 
 
-Perform Solution
-1. Perform the following steps:
-	$ cd $HADOOP_HOME/sbin
-	$ ./start-dfs.sh This will start the Namenode, Secondary Namenode all the configured
-	Datanodes, which in this case is just one (localhost)
-	You can verify with the browser or via command line:
-		Open a browser and just navigate to http://localhost:50070, make sure there are no warnings
-	under 'Cluster Summary' section and there is 1 live node. We must make sure there are no 'Dead Nodes' 
-	
-	Secondary Namenode can be confirmed via http://localhost:50090
-	Execute on the command line $ hadoop dfsadmin -report, you will get a report about the
-	live node 1, dead node 0
-2. $ hdfs dfs -mkdir /exercise1
-3. Perform the following steps:
-a. $ cd /home/cloudera/Data
-b. $ hdfs dfs -put  /exercise1/
-4. $ hdfs dfs -ls /exercise1/
-5. Perform the following steps:
-a. $ hdfs dfs -du -h largedeck.txt
-	693 M  693 M  largedeck.txt
-6. $ hdfs dfs -cat largedeck.txt | head -n 25 largedeck.txt
-7. $ hdfs dfs -cp /exercise1/largedeck.txt /exercise1/largedeckcopy.txt
-8. $ hdfs dfs -get /exercise1/hamlet.txt hamlet_copy.txt
-9. $ hdfs fsck /
-10.hdfs dfs -cp largedeck.txt /user/cloudera/new_folder
- $ hdfs dfs -rm new_folder
 
-11. $ hdfs dfs -rm -r 
-12. $ hdfs dfs -help
+import org.apache.spark.sql.SparkSession
+object testbcards {
+  def main(args:Array[String]): Unit ={
+
+
+    val session = SparkSession.builder()
+      .appName( name = "blackqvn")
+      .config("spark.master","local")
+      .getOrCreate()
+
+    val sc = session.sparkContext
+
+    val cards = sc.textFile( path = "file: D:\\prassadh\\Assaignments_CryptoTech\\BigDataHadoop103\\sample_data")
+    val colour_symb = data.map(x => (x.split("\\|")(0),x.split("\\|")(2)))
+
+    val key_value = colour_symb.map(x => (x,1))
+
+    val count_clr_sym = key_value.reduceByKey((a,b) => (a+b))
+    
+    count_clr_sym.collect()
+  }
+}
+
+
+
+Q) Grading
+
+
+object marks extends App {
+  println("Enter the student marks: ");
+
+  val marks:Int = scala.io.StdIn.readInt();
+  if (marks >= 90 && marks <= 100)
+  {
+    println("The student got Grade A")
+  }
+  else if (marks >= 80 && marks < 90)
+  {
+    println("The student got Grade B")
+  }
+  else if (marks >= 70 && marks < 80)
+  {
+    println("The student got Grade C")
+  }
+  else
+  {
+    println("The student is Failed")
+  }
+}
+
+
+PERSENTAGE STUDENTS
+
+class MaxAvg (id:Int, name:String, cmarks:Int, pmarks:Int, mmarks:Int) {
+
+    def result(){
+      var total:Int = this.cmarks + this.pmarks + this.mmarks;
+      var avg:Double = ((total.toDouble)./(300:Float))*100;
+      var out_put = avg.round;
+
+
+
+      println("id: " + this.id + " per:"+out_put);
+      println();
+
+    }
+
+  }
+
+  object class_data {
+
+    def main(args:Array[String]){
+
+      var m1 = new MaxAvg(id = 101, name = "Janu", cmarks = 45, pmarks = 55, mmarks = 67);
+      m1.result();
+
+      var m2 = new MaxAvg(id = 102, name = "Sannu", cmarks = 55, pmarks = 71, mmarks = 81);
+      m2.result();
+
+      var m3 = new MaxAvg(id = 103, name = "Pannu", cmarks = 65, pmarks = 76, mmarks = 70);
+      m3.result();
+
+
+    }
+
+    }
