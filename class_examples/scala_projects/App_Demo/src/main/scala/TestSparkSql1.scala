@@ -18,6 +18,8 @@ object TestSparkSql1 {
     stdata.saveAsTextFile("src/main/resources/output")
 
 
+
+
   }
 
 }
