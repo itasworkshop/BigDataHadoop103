@@ -1,0 +1,32 @@
+1.	What is the default replication factor of Hadoop cluster?
+Ans: a
+2.	Which component in Hadoop Cluster is responsible for serving read and write requests from 
+the file system's clients?
+Ans: b
+3.	Which component of Hadoop Cluster manages the file system namespace and regulates access 
+to files by clients?
+Ans: a
+4.	If a file size of size 100 MB is stored on HDFS, what would be the split size?
+Ans: b
+5.	State true or false: MR2 support various MPP modes for data processing?
+Ans: b
+6.	Which comand of HDFS helps copy files from HDFS to Local file system?
+Ans: b
+7.	Which Eco system component of Hadoop is good for non sql programmers?
+Ans: b
+8.	Block size of a Hadoop cluster is configurable by Administrator?
+Ans: a
+9.	The functions performed by DataNodes in Hadoop Cluster is/are?
+Ans: d
+10.	Find error in below command:
+Ans: a
+11.	Hadoop block size should be multiple of which unit?
+Ans: c
+12.	Which component of the hadoop cluster manages data on slave nodes?
+Ans: a
+13.	MR1 and MR2 are two modes of processing in Hadoop?
+Ans: a
+14.	What is Hadoop?
+Ans: c
+15.	Hadoop provides
+Ans: a

@@ -1,1 +1,21 @@
-sample
+SCALA COUNT OF BLACK QUEEN IN SPARK-SHELL
+BY T DURGA PRASAD
+
+var data = sc.textFile("/user/cloudera/deckofcards.txt")
+
+#creation of paired RDD
+
+#so that black,Q is key count is value;
+
+var colour_symb = data.map(x => x.split("\\|"))
+
+var colour_symb = data.map(x => x.split("\\|")(0))
+
+var colour_symb = data.map(x => (x.split("\\|")(0),x.split("\\|")(2)))
+
+var key_value = colour_symb.map(x => (x,1))
+
+var count_clr_sym = key_value.reduceByKey((a,b) => (a+b))
+
+scala> count_clr_sym.collect()
+res14: Array[((String, String), Int)] = Array(((BLACK,Q),2), ((RED,Q),2), ((BLACK,4),2), ((BLACK,J),2), ((BLACK,3),2), ((BLACK,10),2), ((RED,A),2), ((RED,7),2), ((BLACK,8),2), ((RED,9),2), ((BLACK,A),2), ((BLACK,2),2), ((RED,6),2), ((RED,J),2), ((BLACK,K),2), ((RED,4),2), ((RED,8),2), ((BLACK,6),2), ((RED,K),2), ((BLACK,7),2), ((BLACK,9),2), ((RED,3),2), ((RED,5),2), ((RED,2),2), ((RED,10),2), ((BLACK,5),2))

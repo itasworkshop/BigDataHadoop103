@@ -1,0 +1,36 @@
+1) Replication Factor: It is basically the number of times Hadoop framework replicate each and every Data Block. 
+Block is replicated to provide Fault Tolerance. 
+The default replication factor is 3 which can be configured as per the requirement; 
+it can be changed to 2 (less than 3) or can be increased (more than 3.).
+
+2)if we will get a big data, then better to increase the no. so that good for storage and proccessing.
+
+3)by comparing the size of data s we can combine
+
+4)GZIP , BZIP ,LZO 
+BZIP is more effective and has higer compression ratio.
+
+6)secondary nodename is a helper 
+its function is to take checkpoints of the file system metadata present on namenode
+need of it is 
+
+7)the main role is to act as the dynamic backup for the filesystem namespace in the primary namenode of the hadoop
+and differs is the backup node does not need to download fsimage and edits files from the active namenode to create a checkpoint, 
+as it already has an up-to-date state of the namespace in its own main memory
+
+8)FsImage is a file stored on the o.s filesystem that contains the complete directory structure of the HDFS with details about the location of the data on the data blocks and 
+which blocks are stored on which node
+ The namenode uses a transaction log called the EditLog
+it relates the secondary namenode merges the fsimage and the edits log files periodically and keeps edits log size within a limit.
+
+9)default block size is 128 MB and
+reason is to minimize the cost of seek and reduce the meta data information generated per block
+
+10)by using command ''-Ddfs. blocksize=block_size' where the block_size 
+and is specified in bytes.
+
+11) DFS provides a balancer utility. This utility analyzes block placement and balances data across the DataNodes. It keeps on moving blocks until the cluster is deemed to be balanced, 
+which means that the utilization of every DataNode is uniform
+
+12) expunge command is used to empty the trash available in an HDFS system
+command is "-expunge"

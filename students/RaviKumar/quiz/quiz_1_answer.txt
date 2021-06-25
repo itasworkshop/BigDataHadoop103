@@ -1,4 +1,38 @@
-1) Link question?
-answer : Output will be 4 becaouse of prevent default.
+1. a (3)
+2. b (Data Node)
+3. a (Name Node)
+4. c (100 MB)
+5. b (No)
+6. c (put)
+7. d (Pig)
+8. a (TRUE)
+9. d (All above)
+10. a (Target name missing)
+11. c (128MB)
+12. a (Name node)
+13. b (FALSE)
+14. c (Both a & b)
+15. d (None of the above)
+
+Answers:
+
+1. What is the Namenode's URI and which file is it configured in?
+
+Namenode's URI is hdfs://localhost:8020, it’s configured with fs.default.name property that’s specified
+in $HADOOP_CONF_DIR/core-site.xml
+
+2. Where on a local file system will Namenode store its image and which file is it configured in?
+
+Namenode will store its image under /home/hadoop/Training/hadoop_work/data/name, it's configured
+with dfs.namenode.name.dir property thats specified in $HADOOP_CONF_DIR/hdfs-site.xml
+
+3. Where on a local file system will Datanode store its blocks and which file is it configured in?
+
+Datanode will store data blocks under /home/hadoop/Training/hadoop_work/data/data, it's configured
+with dfs.datanode.data.dir property that’s specified in $HADOOP_CONF_DIR/hdfs-site.xml
 
 
+4. What is the block replication and which file is it configured in?
+
+Replication is set to 1, it's configured with dfs.replication property that’s specified in
+$HADOOP_CONF_DIR/hdfs-site.xml
