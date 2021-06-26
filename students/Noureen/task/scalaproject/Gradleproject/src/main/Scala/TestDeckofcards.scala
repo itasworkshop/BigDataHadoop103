@@ -8,7 +8,7 @@ object TestDeckofcards {
       .getOrCreate()
 
     val sc = session.sparkContext
-    val cards = sc.textFile("file:/Users/alexprasanth/Documents/deckofcards.txt")
+    val cards = sc.textFile("file:/Users/Noureen/Documents/deckofcards.txt")
     val blackCards = cards.filter(jline=>jline.contains("BLACK"))
     val blackQueenCards = cards.filter(jline=>jline.contains("Q"))
     println(cards.count(),blackCards.count(),blackQueenCards.count())
