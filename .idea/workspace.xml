@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="770deee8-af9d-46b9-b983-c5b8b10067b0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/6.8/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/6.8/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/6.8/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/6.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/6.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/6.8/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/configuration-cache/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.idea/libraries-with-intellij-classes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.idea/scala_compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/build/classes/scala/main/TestDeckofcards$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/build/classes/scala/main/TestDeckofcards.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/build/libs/AppDemo-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/build/tmp/scala/compilerAnalysis/compileScala.analysis" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/build/tmp/scala/compilerAnalysis/compileScala.mapping" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/students/Dipthi/Task/AppDemo/src/main/scala/TestDeckofcards.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BigDataHadoop103.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/students/Dipthi/Task/TestDeckofcards" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1uWj9qUJRLRDNLapLz6qkaZtddY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="770deee8-af9d-46b9-b983-c5b8b10067b0" name="Default Changelist" comment="" />
+      <created>1624788103718</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624788103718</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
