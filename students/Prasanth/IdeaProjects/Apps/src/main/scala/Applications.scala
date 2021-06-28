@@ -14,7 +14,6 @@ object Applications extends App {
   val jsonImpression = parse(jsonString.mkString)
   val elements = jsonImpression.children
 
-
   println("Impression Event: ")
   for (impression <- elements) {
     val imp = impression.extract[impressionEvent]
