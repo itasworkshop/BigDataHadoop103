@@ -48,7 +48,8 @@ object ParseJsonArray extends App {
   println(jsonString)
   val json = parse(jsonString.mkString)
   println(json)
-  val elements = (json).children
+  val elements = (json \\ "emailAccount").children
+  println(elements)
   for (acct <- elements) {
     val m = acct.extract[EmailAccount]
     println(s"Account: ${m.url}, ${m.username}, ${m.password}")
