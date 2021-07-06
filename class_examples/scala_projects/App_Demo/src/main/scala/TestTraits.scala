@@ -1,5 +1,5 @@
 trait RBI{
-  def calculateEMI()
+  def calculateEMI():Unit
 }
 
 class HDFCBank extends RBI {
