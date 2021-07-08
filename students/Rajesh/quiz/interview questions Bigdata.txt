@@ -1,0 +1,534 @@
+1.  Tell me about yourself ?
+
+ans : I have almost 4 years of python and django experiene and i am undergone the 4 projects.
+
+2.  Do you have experience in java or python ? 
+
+Ans : Pyhton
+
+3.  which language you have worked upon ?
+
+Ans : Python
+
+4.  hows training going on ? 
+
+Ans : It's good learnt new things for improve myself
+
+5.  tell me what you have covered in training ?
+
+ans : Bigdata,hadoop,sqoop,hive,map reduce, scala, Spark
+
+6.  basics questions of hdfs architecture ?
+
+Ans: 
+7.  how much experience you hve in spark and scala ? 
+
+8.  what is bigdata ? 
+
+9.  what are 3 Vs of bigdata ? 
+
+10. how much big is bigdata ?
+
+11. what is hadoop ? 
+
+12. What is HDFS and Map reduce?
+
+13. What is the use of PIPE?
+
+14. What is mapper, reducer and inter-mediate stages?
+
+15. how do you monitor jobs in cluster?(submit job in jar it will give url when u click that it's shows entair thing)
+
+16. what is block?
+
+17. Can you tell difference between block and split?
+
+18. How do we change block size?(configuring hdfs-site.xml file)
+
+19. What is replication factor?
+
+20. Is secondary node is back up of Namenode?
+
+    * What is namenode ?
+    * What is datanode ?
+
+21. What is HDFS Architecture/ Hadoop architecture?
+
+22. What is Hive? (Hive is Javabased tool)
+
+23. If a file size of size 100 MB is stored on HDFS, what would be the split size?
+
+24. What is external and internal table in hive? 
+
+25. Where is internal table data is stored?
+hadoop
+1.what is bigdata
+      processing and storing large amount of data ,the data is in structured and unstructured manner
+    
+2.what is 3 v of data? 
+              volume,variety,velocity
+3.how much data in bigdata?
+                   Big Data refers to a dataset which is too large or too complex for ordinary computing devices to process
+                  
+4.what is hadoop?
+            open source,scalable,reliable,for storage and analysis
+5.what is hdfs, map reduce?
+	HDFS is a distributed file system that handles large data sets running on commodity hardware.
+               For processing large data sets in parallel across a Hadoop cluster, Hadoop MapReduce framework is used.  Data analysis uses a two-step map and reduce process.
+6.hdfs commands
+	hdfs dfs -ls /
+	hdfs dfs -mkdir /
+	hdfs dfs -put  /<src path>  <destination path>
+	hdfs dfs -get /<srcpath> <destinationpath>
+
+7.how to find any file in linux,pipe and head syntax?
+           head -n <option> <file name>
+           ls -t | head -n 3
+                        
+8.mapper and reducer  and inter-mediate stages 
+Hadoop Mapper is a function or task which is used to process all input records from a file and generate the output which works as input for Reducer.
+ It produces the output by returning new key-value pairs
+
+
+9.how to submit  job on hadoop cluster 
+      -yarn or hadoop
+
+10.how to monitor job 
+----  show one application id of running job
+
+11.what is block size of file 
+one block size is 128mb
+
+12.why 128 mb? 
+- its depends optmisation -the way its is created 
+
+13.how to change block size 
+      - by changing the configuration
+14.what is replication factor?
+          Default replication factor is 3.It will be change in the file hdfs-site.xml
+Each block from the file is copy from the cluster to different nodes.
+
+15.explain hdfs architecture or hadoop architecture
+          The Hadoop architecture is a package of the file system, MapReduce engine and the HDFS (Hadoop Distributed File System). The MapReduce engine can be MapReduce/MR1 or YARN/MR2. A Hadoop cluster consists of a single master and multiple data nodes.
+
+16.secondary name is not a back node? 
+- helps the namenode
+-Secondary Namenode merges the fsimage and the edits log files
+
+17.what is name node?
+    -name node is the management node or master node
+    -it manages the file system namespace
+     -it manages the blocks present in the data node
+
+other topics - hive
+18.what is hive? 
+       java based tool which is used of interactive query
+      Hive is an open source data warehouse software for reading, writing and managing large data set files that are stored directly in either the Apache Hadoop Distributed File System (HDFS)
+
+19.what is external table and internal table ? 
+
+external table - meta store table or warehouse path,logical table on droping and loading, does nt move data
+internal table  - it stores outside of the warehouse directory,move data from one location to another location,file should remain if the table is dropped also
+
+20.where the default directory for store data in hive?
+                   warehouse
+
+21.how to change the default path for storing the internal tables?
+             Yes, you can do it by using the clause – LOCATION '<hdfs_path>' we can change the default location of a managed table
+
+22.different between hive and mysql? - hive is not organized in manner,Acid property is not used,its a map reduce application
+           MySQL - Acid property used,data is in organized manner,its not a map reduce
+join and subquery
+
+23.what is join in database - retreiving data from multiple tables
+         do u know how many types of joins - inner,right,left and outer
+24.what is subquery? ---subquery is known as innerquery
+	output of one query is depend on result of another query
+
+what are aggregate function?
+
+what is group by? its used by aggreg ftn to use grp
+
+what is different between where and having?  --- where genernal purpose and having used for aggregate data
+
+How do you organize SQL query?
+
+what are udf - user defined function? -customized function
+
+what is difference procedure and function? may or may not return - procedure
+function - its return- resusable code
+
+what is contrainst - primary key , foreign key, not null -rules for data in table
+
+do we have constraints in hive ? no -vanilla hive
+query which want to perform to create stored procedure for that
+
+what are the data format used in hadoop? json,zip,serailizer and deserialized this datatype
+
+delete,drop,truncate ?
+
+what is foreign key?
+
+what is sqoop?- its a tool- java based tool
+used to import and export data, from hadoop to rdms,rdms to hadoop
+
+what is oop?
+
+what is class, object? - (blueprint)template for creating an object
+ and collection of state and behaviour
+instance of class ,real entity of state and behaviour- object
+
+what is constructor? - used initialized the instance variables
+
+what is oops concept? 
+
+what is getter and setter- private member of class
+
+access modifier - public,private,protected,default
+
+difference between overloading and overriding?
+
+can i acheive loading but just changing return type?
+
+what is this,super,static - ? invike without creating and object
+
+
+joins
+--------
+
+(INNER) JOIN: Returns records that have matching values in both tables
+LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
+
+26. how to change the default path for storing the internal tables in hive?
+
+
+Ans : Absolutely, by using the LOCATION keyword, we can change the default location of Managed tables while creating the managed table in Hive. However, to do so, the user needs to specify the storage path of the managed table as the value to the LOCATION keyword, that will help to change the default location of a managed table.
+
+
+27. What is diff between Hive and MySQL?
+
+
+Ans:
+---->Hive writes and queries data in HDFS. SQL requires multiple reads and writes. 
+---->Hive is better for analyzing complex data sets. SQL is better for analyzing less complicated data sets very quickly. 
+---->SQL supports Online Transactional Processing (OLTP). Hive doesn't support OLTP.
+---->Hive queries can have high latency because Hive runs batch processing via Hadoop. This means an hour's wait (or more) for some queries. ---->Updating data on Hive can take a long time too. 
+
+Hive
+-----
+An online community (Apache Software Foundation)
+Resources
+Mailing lists
+Language manual
+
+SQL
+-----
+While there is no official training provided, there are various third-party training modules/support communities for SQL.
+
+
+28. What is join in database? (Retriving data from multiple tables)
+
+Ans : A join is an SQL operation performed to establish a connection between two or more database tables based on matching columns, thereby creating a relationship between the tables. Most complex queries in an SQL database management system involve join commands. There are different types of joins.
+
+
+29. How many types of join? 
+
+Ans :  There are different types of joins used in SQL:
+
+>> Inner Join / Simple Join
+>> Left Outer Join / Left Join
+>> Right Outer Join / Right Join
+>> Full Outer Join
+>> Cross Join
+>> Self Join
+
+
+30. What is sub-query? (when your quary is depended on another quary by getting result)
+
+Ans : In SQL a Subquery can be simply defined as a query within another query. In other words we can say that a Subquery is a query that is embedded in WHERE clause of another SQL query.
+
+Important rules for Subqueries:
+
+>> You can place the Subquery in a number of SQL clauses: WHERE clause, HAVING clause, FROM clause.
+>> Subqueries can be used with SELECT, UPDATE, INSERT, DELETE statements along with expression operator. It could be equality operator or >> comparison operator such as =, >, =, <= and Like operator.
+>> A subquery is a query within another query. The outer query is called as main query and inner query is called as subquery.
+
+
+31. What are the aggregate functions?(sum,count,mul,avg,max,min)
+
+Ans: An aggregate function is a mathematical computation involving a range of values that results in just a single value expressing the significance of the accumulated data it is derived from. Aggregate functions are often used to derive descriptive statistics.
+
+
+32. what is group by ?
+
+Ans : The SQL GROUP BY clause is used in collaboration with the SELECT statement to arrange identical data into groups. This GROUP BY clause follows the WHERE clause in a SELECT statement and precedes the ORDER BY clause.
+
+Syntax
+-------
+The basic syntax of a GROUP BY clause is shown in the following code block. The GROUP BY clause must follow the conditions in the WHERE clause and must precede the ORDER BY clause if one is used.
+
+SELECT column1, column2
+FROM table_name
+WHERE [ conditions ]
+GROUP BY column1, column2
+ORDER BY column1, column2
+
+
+33. How do you organize SQL query?
+
+Ans : So then average_dosage becomes the SELECT statement's final data source. This arrangement is much cleaner than writing everything in one query and putting all the subqueries in the WHERE instructions. Because it makes code easier to read, the WITH clause is arguably the best way to organize SQL queries.
+
+
+34. what is the diffrence between whare clause and having clause ? (having is always using aggrigate data)
+
+Ans : 
+
+	WHERE Clause	                                                     HAVING Clause
+----------------------------------------------                    ----------------------------------------                                              
+1.	WHERE Clause is used to filter the records from          HAVING Clause is used to filter record from the groups
+        the table based on the specified condition.	         based on the specified condition.
+
+2.	WHERE Clause can be used without GROUP BY Clause	 HAVING Clause cannot be used without GROUP BY Clause
+
+3.	WHERE Clause implements in row operations	         HAVING Clause implements in column operation
+
+4.	WHERE Clause cannot contain aggregate function	         HAVING Clause can contain aggregate function
+
+5.	WHERE Clause can be used with SELECT, UPDATE,            HAVING Clause can only be used with SELECT statement.
+        DELETE statement.	
+
+6.	WHERE Clause is used before GROUP BY Clause	         HAVING Clause is used after GROUP BY Clause
+
+7.	WHERE Clause is used with single row function            HAVING Clause is used with multiple row function like SUM, COUNT etc.
+        like UPPER, LOWER etc.	
+
+
+
+35. what are UDFs?
+
+Ans :  User-defined functions allow programmers to create their own routines and procedures that the computer can follow; it is the basic building block of any program and also very important for modularity and code reuse since a programmer could create a user-defined function which does a specific process and simply call it every time it is needed. Their syntax depend entirely on the programming language or application where they are created.
+
+36. What is diffrence between function and processor?
+
+Ans : A procedure is compiled once and can be called multiple times without being compiled. A function returns a value and control to calling function or code. A procedure returns the control but not any value to calling function or code.
+
+
+37. what is constraints in sql ? (Hive not having contrains)
+
+Ans : Constraints are the rules that we can apply on the type of data in a table. That is, we can specify the limit on the type of data that can be stored in a particular column in a table using constraints. 
+
+The available constraints in SQL are: 
+ 
+
+NOT NULL:
+-------- 
+This constraint tells that we cannot store a null value in a column. That is, if a column is specified as NOT NULL then we will not be able to store null in this particular column any more.
+
+UNIQUE:
+------- 
+This constraint when specified with a column, tells that all the values in the column must be unique. That is, the values in any row of a column must not be repeated.
+
+PRIMARY KEY:
+------------
+ A primary key is a field which can uniquely identify each row in a table. And this constraint is used to specify a field in a table as primary key.
+
+FOREIGN KEY:
+------------
+ A Foreign key is a field which can uniquely identify each row in a another table. And this constraint is used to specify a field as Foreign key.
+
+CHECK:
+-------
+ This constraint helps to validate the values of a column to meet a particular condition. That is, it helps to ensure that the value stored in a column meets a specific condition.
+
+DEFAULT:
+--------
+ This constraint specifies a default value for the column when no value is specified by the user.
+
+
+38. What are the data types you've worked on? diff formats of data.
+
+Ans :
+
+
+39. what is delete , drop and truncate ?
+
+Ans : 1. DELETE :
+Basically, it is a Data Manipulation Language Command (DML). It is use to delete the one or more tuples of a table. With the help of “DELETE” command we can either delete all the rows in one go or can delete row one by one. i.e., we can use it as per the requirement or the condition using Where clause. It is comparatively slower than TRUNCATE cmd.
+
+SYNTAX –
+If we want to delete all the rows of the table:
+DELETE from ; 
+SYNTAX –
+If we want to delete the row of the table as per the condition then we use WHERE clause,
+DELETE from  WHERE  ; 
+Note –
+Here we can use the “ROLLBACK” command to restore the tuple.
+
+2. DROP :
+It is a Data Definition Language Command (DDL). It is use to drop the whole table. With the help of “DROP” command we can drop (delete) the whole structure in one go i.e. it removes the named elements of the schema. By using this command the existence of the whole table is finished or say lost.
+
+
+
+
+SYNTAX –
+If we want to drop the table:
+DROP table ;  
+Note –
+Here we can’t restore the table by using the “ROLLBACK” command.
+
+3. TRUNCATE :
+It is also a Data Definition Language Command (DDL). It is use to delete all the rows of a relation (table) in one go. With the help of “TRUNCATE” command we can’t delete the single row as here WHERE clause is not used. By using this command the existence of all the rows of the table is lost. It is comparatively faster than delete command as it deletes all the rows fastly.
+
+SYNTAX –
+If we want to use truncate :
+TRUNCATE  ;  
+
+
+40. what is foriengkey ?
+
+Ans: A foreign key is a key used to link two tables together. This is sometimes also called as a referencing key.
+
+A Foreign Key is a column or a combination of columns whose values match a Primary Key in a different table.
+
+The relationship between 2 tables matches the Primary Key in one of the tables with a Foreign Key in the second table.
+
+If a table has a primary key defined on any field(s), then you cannot have two records having the same value of that field(s).
+
+
+
+41. how to get nth salay in table ?
+
+42. what is Sqoop ?
+  
+Ans :  (is one hadoop ecosystem tool, its javabased tool used to import and export rdbms to hdfs and hdfs to rdbms)
+
+Sqoop is a tool designed to transfer data between Hadoop and relational database servers. It is used to import data from relational databases such as MySQL, Oracle to Hadoop HDFS, and export from Hadoop file system to relational databases.
+
+
+43. what is oops programming ?
+
+Ans:  
+-->Object Oriented programming (OOP) is a programming paradigm that relies on the concept of classes and objects. It is used to structure a software program into simple, reusable pieces of code blueprints (usually called classes), which are used to create individual instances of objects. There are many object-oriented programming languages including JavaScript, C++, Java, and Python.
+
+-->A class is an abstract blueprint used to create more specific, concrete objects. Classes often represent broad categories, like Car or Dog that share attributes. These classes define what attributes an instance of this type will have, like color, but not the value of those attributes for a specific object.
+
+-->Classes can also contain functions, called methods available only to objects of that type. These functions are defined within the class and perform some action helpful to that specific type of object. 
+
+
+
+44. what is calss and object ?
+
+Ans : A class is a code template for creating objects. Objects have member variables and have behaviour associated with them. In python a class is created by the keyword class . An object is created using the constructor of the class. This object will then be called the instance of the class.
+
+
+45. what is constracters ?
+
+Ans : 
+
+Constructors are generally used for instantiating an object.The task of constructors is to initialize(assign values) to the data members of the class when an object of class is created.In Python the __init__() method is called the constructor and is always called when an object is created.
+
+Syntax of constructor declaration :
+
+def __init__(self):
+    # body of the constructor
+Types of constructors :
+
+default constructor :The default constructor is simple constructor which doesn’t accept any arguments.It’s definition has only one argument which is a reference to the instance being constructed.
+parameterized constructor :constructor with parameters is known as parameterized constructor.The parameterized constructor take its first argument as a reference to the instance being constructed known as self and the rest of the arguments are provided by the programmer.
+
+
+46. what is inheritence, polymorphisum, encapsulation, abstraction ?
+
+Ans: Abstraction ensures simplicity. Inheritance has to do with methods and functions inheriting the attributes of another class. ... Polymorphism allows program code to have different meaning or functions while encapsulation is the process of keeping classes private so they cannot be modified by external codes.
+
+
+
+47. what are access modifiers?
+
+Ans : 
+-->Public access
+By default, all members (instance variables and methods) are public:
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name # public
+        self.age  = age  # public
+-->Protected access
+To make an instance variable or method protected, the convention is to prefix the name with a single underscore _, like:
+
+class Person:
+    def __init__(self, name, age):
+        self._name = name # protected 
+        self._age  = age  # protected 
+-->Private access
+You can make an instance variable or method private by using the double underscore __, like:
+
+class Person:
+    def __init__(self, name, age):
+        self.__name = name # private
+        self.__age  = age  # private
+The __name and __age instance variables cannot be accessed outside the class, doing so will give an AttributeError:
+
+p1 = Person("John", 20)
+p1.__name  # will give AttributeError
+
+***what is getter and setters ?
+
+Ans : The get method returns the variable value, and the set method sets the value.
+
+Syntax for both is that they start with either get or set, followed by the name of the variable, with the first letter in upper case:
+
+Example
+public class Person {
+  private String name; // private = restricted access
+
+  // Getter
+  public String getName() {
+    return name;
+  }
+
+  // Setter
+  public void setName(String newName) {
+    this.name = newName;
+  }
+}
+
+
+
+48. what is overloading and overrriding ?
+
+Ans : 
+
+Method Overloading: 
+Method Overloading is an example of Compile time polymorphism. In this, more than one method of the same class shares the same method name having different signatures. Method overloading is used to add more to the behavior of methods and there is no need of more than one class for method overloading.
+Note: Python does not support method overloading. We may overload the methods but can only use the latest defined method.
+
+Method Overriding: 
+Method overriding is an example of run time polymorphism. In this, the specific implementation of the method that is already provided by the parent class is provided by the child class. It is used to change the behavior of existing methods and there is a need for at least two classes for method overriding. In method overriding, inheritance always required as it is done between parent class(superclass) and child class(child class) methods.
+
+
+49. what is super ? what is static ? 
+
+Ans : A static method or, block belongs to the class and these will be loaded into the memory along with the class. ... Where, the "super" keyword in Java is used as a reference to the object of the super class. This implies that to use "super" the method should be invoked by an object, which static methods are not.
+
+
+50. what is list,tuple,set,dict and what is python arreys ? (from python side)
+
+Ans : Lists: are just like dynamic sized arrays, declared in other languages (vector in C++ and ArrayList in Java). Lists need not be homogeneous always which makes it a most powerful tool in Python.
+
+Tuple: A Tuple is a collection of Python objects separated by commas. In someways a tuple is similar to a list in terms of indexing, nested objects and repetition but a tuple is immutable unlike lists that are mutable.
+
+Set: A Set is an unordered collection data type that is iterable, mutable and has no duplicate elements. Python’s set class represents the mathematical notion of a set.
+
+Dictionary: in Python is an unordered collection of data values, used to store data values like a map, which unlike other Data Types that hold only single value as an element, Dictionary holds key:value pair. Key value is provided in the dictionary to make it more optimized.
+
+List, Tuple, Set, and Dictionary are the data structures in python that are used to store and organize the data in an efficient manner.
+
+
+
+
+
+ 
+
