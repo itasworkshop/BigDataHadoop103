@@ -1,0 +1,57 @@
+[debug] [zinc] IncrementalCompile -----------
+[debug] IncrementalCompile.incrementalCompile
+[debug] previous = Stamps for: 0 products, 0 sources, 0 libraries
+[debug] current source = Set(${BASE}/src/main/scala/Hello.scala)
+[debug] > initialChanges = InitialChanges(Changes(added = Set(${BASE}/src/main/scala/Hello.scala), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())
+[debug] Full compilation, no sources in previous analysis.
+[debug] all 1 sources are invalidated
+[debug] Initial set of included nodes: 
+[debug] Recompiling all sources: number of invalidated sources > 50.0% of all sources
+[debug] compilation cycle 1
+[info] compiling 1 Scala source to /home/deep/IdeaProjects/project_1/target/scala-2.13/classes ...
+[debug] Getting org.scala-sbt:compiler-bridge_2.13:1.5.5:compile for Scala 2.13.6
+[info] Non-compiled module 'compiler-bridge_2.13' for Scala 2.13.6. Compiling...
+[debug] Creating plain compiler interface for 2.13.6.
+[debug]   > Arguments: 
+[debug] 	-d
+[debug] 	/tmp/sbt_a084c694
+[debug] 	-nowarn
+[debug] 	-bootclasspath
+[debug] 	/home/deep/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.6/scala-library-2.13.6.jar
+[debug] 	-classpath
+[debug] 	/home/deep/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/compiler-interface/1.5.5/compiler-interface-1.5.5.jar:/home/deep/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-interface/1.5.0/util-interface-1.5.0.jar:/home/deep/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/compiler-bridge_2.13/1.5.5/compiler-bridge_2.13-1.5.5-sources.jar:/home/deep/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.6/scala-compiler-2.13.6.jar:/home/deep/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.6/scala-reflect-2.13.6.jar:/home/deep/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline/3.19.0/jline-3.19.0.jar:/home/deep/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar
+[debug] 	/tmp/sbt_8a6888d8/scala/ZincCompat.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/API.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/AbstractZincFile.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/Analyzer.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/CallbackGlobal.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/ClassName.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/Compat.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/CompilerBridge.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/ConsoleBridge.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/DelegatingReporter.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/Dependency.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/ExtractAPI.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/ExtractUsedNames.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/GlobalHelpers.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/InteractiveConsoleBridge.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/InteractiveConsoleFactoryBridge.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/InteractiveConsoleHelper.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/InteractiveConsoleResponse.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/JarUtils.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/JavaUtils.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/LocalToNonLocalClass.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/LocateClassFile.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/Log.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/Message.scala
+[debug] 	/tmp/sbt_8a6888d8/xsbt/ScaladocBridge.scala
+[debug]       
+[info]   Compilation completed in 17.838s.
+[debug] [zinc] Running cached compiler 22b6a80 for Scala compiler version 2.13.6
+[debug] [zinc] The Scala compiler is invoked with:
+[debug] 	-bootclasspath
+[debug] 	/home/deep/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.6/scala-library-2.13.6.jar
+[debug] 	-classpath
+[debug] 	/home/deep/IdeaProjects/project_1/target/scala-2.13/classes
+[debug] Scala compilation took 21.161052362 s
+[info] done compiling

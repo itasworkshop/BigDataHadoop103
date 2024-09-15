@@ -1,0 +1,146 @@
+1)what is bigdata? 
+-  processing and storing large amount of data, 
+   the data is in structured and unstructered manner.
+2)what is four v's ? 
+         volume(large amount of data)
+          variety(different forms of data)
+           velocity(analysis of streaming data)
+            veracity(uncertainty of data)
+3)reading multiple disk in two ways
+             - hdfs,mapreduce
+
+4)what is Hadoop?
+            open source,a reliable,scable,for storage and analysis,
+            commodity hardware(capable of running different windows or Linux)
+
+5)what is Hadoop cluster?  
+        - collections of computer,know as nodes are networked together to
+                per same task as a system
+
+6)Hadoop system principles ?
+         scale out and scale in,fault tolerance
+            i)scale-in [add existing resources to existing node cup,ram],expensive and hard to implement
+             ii)scale-out[add more machines/nodes to the existing dfs]
+              iii)fault tolerance[data is replicated,task are retired]
+
+7)how to check default block size?
+        -property set to blocksize in hdfs-site.xml,property name is dfs.blocksize in hdfs.site.xml
+
+8)default size of block? 
+       128mb
+
+9)uses of fsck? 
+      - used to check the healthy status of the file,checking blocks,size,replication and corrupted file
+
+10)Two types of table in hive?
+            -internal /external
+11)In which path hive tables are stored?
+-         warehouse directory
+
+12)What is default replication factor and how will you change at file level?
+
+Default replication factor is 3.It will be change in the file hdfs-site.xml
+Each block from the file is copy from the cluster to different nodes.
+
+13)What is Secondary Namenode ?
+             It merges the files system and namespace image
+its supports the primary name node not a replace of name node
+
+14)what is transformation and action And Difference
+                   Spark rdd functions are transformations and actions both. Transformation is function that changes rdd data and Action is a function that doesn't change the data but gives an output
+
+15)difference between flat map and map?
+One to many ,one to one
+first mapping and flattening , mapping
+ex: char + one = c,h,a,r,o,n,e
+
+16)what is case class & its advantages
+Scala case classes are just regular classes which are immutable by default and decomposable through pattern matching. It uses equal method to compare instance structurally. It does not use new keyword to instantiate object. All the parameters listed in the case class are public and immutable by default.
+
+
+17)what is traits?
+               Traits are like interfaces in Java . Traits can have methods(both abstract and non-abstract), and fields as its members.
+
+18)difference between val & var?
+The difference between val and var is that val makes a variable immutable — like final in Java — and var makes a variable mutable. Because val fields can't vary, some people refer to them as values rather than variables
+
+19)Hdfs commands?
+       hdfs dfs -ls
+       hdfs dfs copyFromLocal <src><dsc>
+       hdfs dfs copyToLocal <dsc><src>
+      hdfs dfs -put <src><dsc>
+      hdfs dfs -rm -r <path>
+ 
+
+20)what is spark session?   
+   It’s entry point for our application, combination of spark context , sql context and streaming context
+
+
+21)How to submit job in spark and what command it used for that with syntax?
+ans:- Using "spark-submit", 
+
+spark-submit –master localhost –class name <path of the jar>
+
+22)what is hive?
+     -its a java based tool
+    - used of creating ,storing and accesing data
+    -its is directly stores in Hadoop cluster
+
+23)Different types of table in hive and its difference?
+ans:-
+Internal vs. External Table 
+Internal Table	
+It is default table of hive
+If a internal table  the data and metadata associated with that table or partition are deleted.	
+For internal tables, Hive stores data into its warehouse directory	
+
+External Table
+For external tables, Hive assumes that it does not manage the data.
+Dropping the table does not delete the data, although the metadata for the table will be deleted.
+For External Tables, Hive stores the data in the LOCATION specified during creation of the table(generally not in warehouse directory)
+
+24)What is sqoop?
+ Apache Sqoop(TM) is a tool designed for efficiently transferring bulk data between Apache Hadoop and structured datastores such as relational databases.
+
+25)what is MapReduce in Hadoop?
+        MapReduce is a Hadoop framework used for writing applications that can process large amounts of data 
+        MapReduce program work in two phases, namely, Map and Reduce. Map tasks deal with splitting and mapping of data while Reduce tasks shuffle and reduce the data.
+
+26)Import command in sqoop?
+ sqoop import --connect "jdbc:mysql://quickstart.cloudera:3306/retail_db" --username root --password cloudera --table departments --as-textfile --target-dir /user/root/all-tables1
+
+27)How to check/monitored running job in spark?
+       Onspark UI localhost:4041
+
+28)what is df between rdd and dataframe?
+used collection of disturbed data in cluster format, object representation
+immutable  used collection of organized disturbed data in table format, relational data sqlcontext is dataframe 
+- rdms prgm to our application
+
+29)what is bucketing and partition?
+       partitioning is a technique to organize hive tables Based on partition keys it divides tables into different parts. ... 
+Bucketing is a technique where the tables or partitions are further sub-categorized into buckets for better structure of data and efficient querying
+
+30)what is the driver program in spark?
+      spark shell
+
+31)how to change the blocksize and replication factor?
+          by change the property name dfs.blocksize and dfs.replication in hdfs-site.xml
+
+32)what is name node?
+        -master node or management node
+       - it manages all files present in the data node, 
+      - its manages file system namespace
+
+33)Hadoop Architecture?
+              contain single master node and multiple data nodes
+             
+34)
+
+
+
+
+
+
+
+

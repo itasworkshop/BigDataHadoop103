@@ -1,0 +1,49 @@
+[debug] > Exec(80, None, None)
+[error] Expected letter
+[error] Expected symbol
+[error] Expected '+'
+[error] Expected '++'
+[error] Expected 'java++'
+[error] Expected 'java+'
+[error] Expected '^'
+[error] Expected '^^'
+[error] Expected '+-'
+[error] Expected 'debug'
+[error] Expected 'info'
+[error] Expected 'warn'
+[error] Expected 'error'
+[error] Expected 'addPluginSbtFile'
+[error] Expected 'sbtRebootNetwork'
+[error] Expected 'show'
+[error] Expected 'print'
+[error] Expected 'all'
+[error] Expected 'Global'
+[error] Expected '*'
+[error] Expected 'Zero'
+[error] Expected 'ThisBuild'
+[error] Expected 'ProjectRef('
+[error] Expected '{'
+[error] Expected project ID
+[error] Expected configuration
+[error] Expected configuration ident
+[error] Expected key
+[error] Expected '__disconnectNetworkChannel'
+[error] Expected '__waitWatch'
+[error] Expected 'sbtPromptChannel'
+[error] Expected end of input.
+[error] Expected 'sbtRebootImpl'
+[error] Expected 'early('
+[error] Expected '-'
+[error] Expected '--'
+[error] Expected '!'
+[error] Expected 'sbtReportResult'
+[error] Expected 'sbtMapExec'
+[error] Expected 'sbtCompleteExec'
+[error] Expected '__failWatch'
+[error] Expected '__preWatch'
+[error] Expected '__postWatch'
+[error] Expected '__runWatch'
+[error] Expected '__stopWatch'
+[error] 80
+[error] ^
+[debug] > Exec(idea-shell, None, None)
